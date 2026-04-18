@@ -3,28 +3,28 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const insights = [
   {
-    quote: "When soil moisture sensors integrate with predictive irrigation algorithms, water consumption decreases measurably while plant biomass accumulation improves. The system responds to actual need rather than assumed schedules.",
-    topic: "Precision Irrigation",
-    context: "Controlled environment agriculture",
-    metric: { value: "38-47%", label: "Water optimization" },
+    quote: "We can only see a short distance ahead, but we can see plenty there that needs to be done.",
+    topic: "Alan Turing",
+    context: "Computing Machinery and Intelligence, 1950",
+    metric: { value: "1950", label: "The founding question" },
   },
   {
-    quote: "Spectral imaging combined with pattern recognition enables detection of pathogen signatures in plant tissue before visible symptom manifestation. Early intervention becomes possible when observation extends beyond human perception.",
-    topic: "Disease Detection",
-    context: "Greenhouse monitoring systems",
-    metric: { value: "12-18 days", label: "Earlier detection" },
+    quote: "Machine intelligence is the last invention that humanity will ever need to make.",
+    topic: "Nick Bostrom",
+    context: "Philosopher, University of Oxford",
+    metric: { value: "Frontier", label: "Long-term implications" },
   },
   {
-    quote: "Optimization of light spectrum and photoperiod through adaptive algorithms correlates with significant improvements in harvestable yield. The plant receives what it needs when it needs it.",
-    topic: "Light Optimization",
-    context: "Vertical farming research",
-    metric: { value: "45-65%", label: "Yield improvement" },
+    quote: "It is difficult to think of a major industry that AI will not transform — including healthcare, education, transportation, retail, communications, and agriculture.",
+    topic: "Andrew Ng",
+    context: "AI researcher and educator",
+    metric: { value: "Every", label: "Industry affected" },
   },
   {
-    quote: "The capacity to trace environmental variables to specific growth outcomes transforms empirical gardening knowledge into systematic, reproducible methodology. Intuition becomes quantifiable.",
-    topic: "Growth Traceability",
-    context: "Multi-season studies",
-    metric: { value: "Complete", label: "Variable tracking" },
+    quote: "Artificial intelligence is the new electricity. Just as electricity transformed almost everything 100 years ago, AI will transform every industry.",
+    topic: "General-Purpose Tech",
+    context: "How researchers describe AI's reach",
+    metric: { value: "GPT", label: "General-purpose technology" },
   },
 ];
 
@@ -70,7 +70,7 @@ export function TestimonialsSection() {
     <section ref={sectionRef} className="relative py-32 lg:py-40 bg-foreground text-background overflow-hidden">
       {/* Animated background gradient */}
       <div className="absolute inset-0 opacity-30">
-        <div 
+        <div
           className="absolute inset-0 bg-gradient-to-br from-[#eca8d6]/20 via-transparent to-[#7dd3fc]/10"
           style={{ animation: "gradientShift 15s ease-in-out infinite alternate" }}
         />
@@ -97,16 +97,16 @@ export function TestimonialsSection() {
           <div>
             <span className="inline-flex items-center gap-3 text-sm font-mono text-background/40 mb-4">
               <span className="w-12 h-px bg-background/20" />
-              Observed Patterns
+              Voices on AI
             </span>
             <h2 className={`text-4xl lg:text-5xl font-display transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}>
-              What the data
-              <span className="text-background/40"> reveals.</span>
+              How thinkers describe
+              <span className="text-background/40"> the field.</span>
             </h2>
           </div>
-          
+
           {/* Navigation arrows */}
           <div className="hidden lg:flex items-center gap-2">
             <button
@@ -128,20 +128,18 @@ export function TestimonialsSection() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           {/* Quote side */}
           <div className="lg:col-span-7 relative">
-            {/* Large quote mark with glow */}
             <span className="absolute -left-4 -top-8 text-[200px] font-display text-[#eca8d6]/10 leading-none select-none">
               &ldquo;
             </span>
-            
+
             <div className="relative">
-              <blockquote 
+              <blockquote
                 key={activeIndex}
                 className="text-3xl lg:text-4xl xl:text-5xl font-display leading-[1.2] tracking-tight animate-fadeSlideIn"
               >
                 {activeInsight.quote}
               </blockquote>
 
-              {/* Topic badge */}
               <div className="mt-12 flex items-center gap-6">
                 <div className="px-4 py-2 bg-[#eca8d6]/20 border border-[#eca8d6]/30 rounded-full">
                   <span className="text-sm font-mono text-[#eca8d6]">{activeInsight.topic}</span>
@@ -155,20 +153,18 @@ export function TestimonialsSection() {
 
           {/* Metric cards side */}
           <div className="lg:col-span-5 flex flex-col justify-center gap-6">
-            {/* Active metric - Large with gradient border */}
-            <div 
+            <div
               key={`metric-${activeIndex}`}
               className="relative p-10 bg-background/5 animate-fadeSlideIn overflow-hidden group"
             >
-              {/* Animated border */}
               <div className="absolute inset-0 rounded-none">
                 <div className="absolute inset-0 border border-background/20 group-hover:border-[#eca8d6]/40 transition-colors duration-500" />
-                <div 
+                <div
                   className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-[#eca8d6] to-transparent"
                   style={{ width: "100%", animation: "borderGlow 2s ease-in-out infinite" }}
                 />
               </div>
-              
+
               <span className="text-7xl lg:text-8xl font-display block mb-4 bg-gradient-to-r from-background to-background/70 bg-clip-text">
                 {activeInsight.metric.value}
               </span>
@@ -185,7 +181,7 @@ export function TestimonialsSection() {
                   onClick={() => goTo(idx)}
                   className="flex-1 h-1.5 bg-background/20 overflow-hidden rounded-full hover:bg-background/30 transition-colors"
                 >
-                  <div 
+                  <div
                     className={`h-full bg-[#eca8d6] rounded-full transition-all duration-300 ${
                       idx === activeIndex ? "w-full" : idx < activeIndex ? "w-full opacity-50" : "w-0"
                     }`}
@@ -195,10 +191,9 @@ export function TestimonialsSection() {
               ))}
             </div>
 
-            {/* Topic tags */}
             <div className="mt-4 pt-6 border-t border-background/10">
               <span className="text-xs font-mono text-background/30 uppercase tracking-widest block mb-4">
-                Research areas
+                Perspectives
               </span>
               <div className="flex flex-wrap gap-3">
                 {insights.map((t, idx) => (
@@ -206,8 +201,8 @@ export function TestimonialsSection() {
                     key={t.topic}
                     onClick={() => goTo(idx)}
                     className={`px-4 py-2 text-sm border transition-all duration-300 hover:scale-105 ${
-                      idx === activeIndex 
-                        ? "border-[#eca8d6]/60 text-background bg-[#eca8d6]/10" 
+                      idx === activeIndex
+                        ? "border-[#eca8d6]/60 text-background bg-[#eca8d6]/10"
                         : "border-background/10 text-background/40 hover:border-background/30 hover:bg-background/5"
                     }`}
                   >

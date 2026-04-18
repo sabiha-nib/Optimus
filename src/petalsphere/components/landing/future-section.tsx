@@ -5,23 +5,23 @@ import { RotateCcw, Sparkles, Globe, Network } from "lucide-react";
 const futures = [
   {
     icon: Globe,
-    title: "Autonomous Ecological Monitoring",
+    title: "More Capable Models",
     description:
-      "Networks of distributed sensors spanning entire landscapes, continuously mapping the health of ecosystems at scales impossible for human observation alone.",
+      "Each generation of frontier models is more multimodal, more reliable and better at long-horizon reasoning. Tomorrow's AI will likely combine text, images, video, audio and action into a single, seamless system.",
     color: "#eca8d6",
   },
   {
     icon: Sparkles,
-    title: "Predictive Environmental Modeling",
+    title: "AI as a Collaborator",
     description:
-      "Machine learning systems trained on decades of climate data, projecting future growing conditions and recommending adaptive strategies.",
+      "The most likely near-term future is not AI replacing people but AI working with them — a tireless assistant for writing, designing, coding, researching and learning, available to anyone with an internet connection.",
     color: "#7dd3fc",
   },
   {
     icon: Network,
-    title: "Integrated Biological Networks",
+    title: "Toward General Intelligence",
     description:
-      "Gardens that communicate with each other, sharing data about pest outbreaks, successful techniques, and optimal timing for seasonal activities.",
+      "Whether artificial general intelligence is years or decades away is one of the most debated questions in technology. Either way, the steps toward it are already reshaping research priorities, regulation and public conversation.",
     color: "#a5f3fc",
   },
 ];
@@ -65,19 +65,17 @@ export function FutureSection() {
         ))}
       </div>
 
-      {/* Subtle background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div 
+        <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#eca8d6]/5 blur-[150px]"
           style={{ animation: "pulseGlow 8s ease-in-out infinite" }}
         />
-        <div 
+        <div
           className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#7dd3fc]/5 blur-[100px]"
           style={{ animation: "pulseGlow 10s ease-in-out infinite reverse" }}
         />
       </div>
 
-      {/* Floating particles */}
       <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <div
@@ -96,7 +94,6 @@ export function FutureSection() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
 
-
         {/* Header */}
         <div className="mb-20 text-center">
           <span
@@ -105,7 +102,7 @@ export function FutureSection() {
             }`}
           >
             <span className="w-12 h-px bg-white/20" />
-            Future Implications
+            What Comes Next
             <span className="w-12 h-px bg-white/20" />
           </span>
 
@@ -114,9 +111,9 @@ export function FutureSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Toward a deeper
+            The road
             <br />
-            <span className="bg-gradient-to-r from-[#eca8d6] to-[#7dd3fc] bg-clip-text text-transparent">understanding.</span>
+            <span className="bg-gradient-to-r from-[#eca8d6] to-[#7dd3fc] bg-clip-text text-transparent">ahead.</span>
           </h2>
 
           <p
@@ -124,13 +121,13 @@ export function FutureSection() {
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            The technologies explored in this investigation point toward possibilities 
-            that extend far beyond the boundaries of individual gardens, into the realm 
-            of planetary-scale ecological intelligence.
+            Predicting AI's future is notoriously hard, but the direction of travel is clear:
+            more capable systems, more deeply embedded in everyday life, raising questions
+            humanity has never had to answer at this scale before.
           </p>
         </div>
 
-        {/* Future cards with enhanced glassmorphism */}
+        {/* Future cards */}
         <div className="grid lg:grid-cols-3 gap-6 mb-20">
           {futures.map((item, index) => (
             <div
@@ -138,7 +135,7 @@ export function FutureSection() {
               className={`group relative p-8 lg:p-10 border backdrop-blur-sm transition-all duration-500 overflow-hidden ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
-              style={{ 
+              style={{
                 transitionDelay: `${index * 100 + 300}ms`,
                 borderColor: hoveredIndex === index ? `${item.color}50` : "rgba(255,255,255,0.1)",
                 backgroundColor: hoveredIndex === index ? `${item.color}10` : "rgba(255,255,255,0.02)",
@@ -146,8 +143,7 @@ export function FutureSection() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Animated gradient background */}
-              <div 
+              <div
                 className="absolute inset-0 transition-opacity duration-500"
                 style={{
                   background: `radial-gradient(circle at 50% 0%, ${item.color}20, transparent 70%)`,
@@ -155,8 +151,7 @@ export function FutureSection() {
                 }}
               />
 
-              {/* Icon */}
-              <div 
+              <div
                 className="w-12 h-12 flex items-center justify-center mb-6 transition-all duration-500"
                 style={{
                   color: hoveredIndex === index ? item.color : "rgba(255,255,255,0.6)",
@@ -169,8 +164,7 @@ export function FutureSection() {
               <h3 className="text-xl font-display text-white mb-4 group-hover:translate-x-1 transition-transform duration-300">{item.title}</h3>
               <p className="text-white/50 leading-relaxed text-sm group-hover:text-white/70 transition-colors duration-300">{item.description}</p>
 
-              {/* Bottom accent line */}
-              <div 
+              <div
                 className="absolute bottom-0 left-0 h-[2px] transition-all duration-500"
                 style={{
                   background: item.color,
@@ -189,11 +183,11 @@ export function FutureSection() {
           }`}
         >
           <p className="text-2xl md:text-3xl text-white/80 leading-relaxed font-display italic max-w-3xl mx-auto mb-4">
-            The future of cultivation is not separate from technology.
+            Artificial intelligence is no longer a question for the distant future.
           </p>
 
           <p className="text-2xl md:text-3xl text-white/50 leading-relaxed font-display italic max-w-3xl mx-auto mb-16">
-            It grows alongside it, in patterns we are only beginning to perceive.
+            It is a tool, a discipline, and a mirror — being shaped, right now, by all of us.
           </p>
 
           <Button
@@ -203,7 +197,7 @@ export function FutureSection() {
             className="group h-14 px-8 text-base rounded-full border-white/20 text-white hover:bg-white/10 hover:border-[#eca8d6]/50 transition-all duration-300"
           >
             <RotateCcw className="w-4 h-4 mr-2 group-hover:-rotate-180 transition-transform duration-500" />
-            Return to Beginning
+            Back to the top
           </Button>
         </div>
       </div>

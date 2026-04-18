@@ -147,15 +147,15 @@ export default function AgenticPage() {
               transition: "opacity 1s cubic-bezier(0.16,1,0.3,1) 0ms, filter 1s cubic-bezier(0.16,1,0.3,1) 0ms, transform 1s cubic-bezier(0.16,1,0.3,1) 0ms",
             }}
           >
-            Build &amp;<br />orchestrate AI<br />agents while<br />you sleep.
+            What is<br />artificial<br />intelligence,<br />really?
           </h1>
 
           {/* 3 metrics — staggered after title */}
           <div className="flex gap-8 sm:gap-12">
             {[
-              { value: "50M+", label: "Tasks" },
-              { value: "99.9%", label: "Uptime" },
-              { value: "180+", label: "Countries" },
+              { value: "Learn", label: "From data" },
+              { value: "Reason", label: "Across domains" },
+              { value: "Act", label: "In the world" },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -179,9 +179,9 @@ export default function AgenticPage() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <PixelIcon type="platform" size={40} />
-            <div className="mt-4"><Tag>PLATFORM</Tag></div>
+            <div className="mt-4"><Tag>OVERVIEW</Tag></div>
             <RevealText className="mt-5 text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.05]">
-              {"Everything you need\nto ship agents."}
+              {"What artificial\nintelligence does."}
             </RevealText>
           </div>
 
@@ -256,13 +256,13 @@ export default function AgenticPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
             <div>
               <PixelIcon type="agents" size={40} />
-              <div className="mt-4"><Tag>AGENT TYPES</Tag></div>
+              <div className="mt-4"><Tag>CAPABILITIES</Tag></div>
               <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
-                {"Plug-and-play agents\nready to deploy."}
+                {"Things modern AI\ncan already do."}
               </RevealText>
             </div>
             <p className="text-sm text-black/45 leading-relaxed max-w-xs">
-              Start with a pre-built agent or compose your own from primitives. Every agent is versioned, testable, and observable.
+              From recognising images to writing code, today\u2019s AI handles a surprisingly broad set of tasks \u2014 each powered by the same underlying ideas.
             </p>
           </div>
 
@@ -275,9 +275,9 @@ export default function AgenticPage() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <PixelIcon type="workflow" size={40} />
-            <div className="mt-4"><Tag>WORKFLOW</Tag></div>
+            <div className="mt-4"><Tag>HOW IT WORKS</Tag></div>
             <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
-              {"From idea to running agent\nin four steps."}
+              {"How an AI system\nlearns its job."}
             </RevealText>
           </div>
 
@@ -322,13 +322,13 @@ export default function AgenticPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
             <div>
               <PixelIcon type="integrations" size={40} />
-              <div className="mt-4"><Tag>INTEGRATIONS</Tag></div>
+              <div className="mt-4"><Tag>APPLICATIONS</Tag></div>
               <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
-                {"Connect any tool.\nControl any system."}
+                {"AI is everywhere\nyou already look."}
               </RevealText>
             </div>
             <p className="text-sm text-black/45 leading-relaxed max-w-xs">
-              200+ native connectors. Everything from Slack to your internal database. Build custom tools with our SDK in minutes.
+              Search, maps, photos, recommendations, voice assistants \u2014 the products you use every day are quietly powered by AI models running behind the scenes.
             </p>
           </div>
 
@@ -391,9 +391,9 @@ export default function AgenticPage() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <PixelIcon type="platform" size={40} />
-            <div className="mt-4"><Tag>SECURITY</Tag></div>
+            <div className="mt-4"><Tag>TRUST</Tag></div>
             <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
-              {"Enterprise-grade\nfrom day one."}
+              {"Building AI we\ncan actually trust."}
             </RevealText>
           </div>
 
@@ -402,7 +402,7 @@ export default function AgenticPage() {
             {/* Left side — descriptions */}
             <div className="space-y-6">
               <p className="text-sm text-black/45 leading-relaxed">
-                Every action is logged, every decision is traceable. Built for teams that need compliance without compromise.
+                Researchers and regulators are working on tools to audit, interpret and constrain AI systems \u2014 so the models we depend on stay transparent and accountable.
               </p>
 
               <div className="space-y-4">
@@ -504,16 +504,16 @@ export default function AgenticPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <PixelIcon type="agents" size={40} />
-              <div className="mt-4"><Tag>LIVE RIGHT NOW</Tag></div>
+              <div className="mt-4"><Tag>IN THE WILD</Tag></div>
               <RevealText className="mt-5 text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.05]">
-                {"Agents working\n24 / 7, autonomously."}
+                {"AI is running,\nright now, everywhere."}
               </RevealText>
               <p className="mt-6 text-base text-black/40 leading-relaxed max-w-sm">
                 At any moment, thousands of agents are running tasks on behalf of teams around the world — no human in the loop.
               </p>
               <div className="mt-10 flex items-end gap-2">
                 <LiveAgentCounter />
-                <span className="text-black/30 text-sm mb-1 tracking-wide">agents active globally</span>
+                <span className="text-black/30 text-sm mb-1 tracking-wide">AI inferences per second, globally</span>
               </div>
             </div>
             <div className="relative">
@@ -528,9 +528,9 @@ export default function AgenticPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 flex flex-col items-center">
             <PixelIcon type="pricing" size={40} />
-            <div className="mt-4"><Tag>PRICING</Tag></div>
+            <div className="mt-4"><Tag>LEARN MORE</Tag></div>
             <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
-              {"Pay as your agents grow."}
+              {"Continue your\njourney into AI."}
             </RevealText>
           </div>
 
@@ -623,10 +623,10 @@ export default function AgenticPage() {
         />
         <div className="relative z-10 max-w-2xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.05] mb-6">
-            Start building your<br />agent workforce.
+            Ready to dive deeper<br />into how AI works?
           </h2>
           <p className="text-sm text-black/45 leading-relaxed mb-10">
-            Join thousands of teams deploying AI agents that work around the clock, across every timezone.
+            Continue to the long-form guide — the history, the science, the ethics and the future of artificial intelligence.
           </p>
           {!submitted ? (
             <form

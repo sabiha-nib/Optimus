@@ -10,7 +10,7 @@ export default function PetalSpherePage() {
         to="/"
         className="fixed bottom-4 right-4 z-[100] px-4 py-2 rounded-full bg-white text-black text-xs font-medium shadow-lg hover:bg-white/80 transition-colors"
       >
-        ← Back to Agentic
+        ← Back to overview
       </Link>
       <PetalPage />
     </div>
