@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import { Cpu, Eye, Cloud, TrendingUp } from "lucide-react";
 

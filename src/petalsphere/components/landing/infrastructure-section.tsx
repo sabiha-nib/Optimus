@@ -1,8 +1,5 @@
-"use client";
-
 import { useEffect, useState, useRef } from "react";
-import Image from "next/image";
-
+import { NextImage as Image } from "@/petalsphere/lib/next-image";
 const regions = [
   { name: "Soil Sensors", nodes: 12, status: "active", color: "#eca8d6" },
   { name: "Climate Monitors", nodes: 8, status: "active", color: "#7dd3fc" },

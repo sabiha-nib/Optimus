@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import { Droplets, Sprout, Globe, Utensils } from "lucide-react";
 

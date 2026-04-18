@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useRef } from "react"
 
 // Each icon is a 12×12 pixel grid animated at 60fps with RAF

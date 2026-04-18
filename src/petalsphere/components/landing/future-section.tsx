@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { RotateCcw, Sparkles, Globe, Network } from "lucide-react";

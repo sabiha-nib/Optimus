@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState, useRef } from "react";
 
 const logos: Record<string, React.ReactNode> = {

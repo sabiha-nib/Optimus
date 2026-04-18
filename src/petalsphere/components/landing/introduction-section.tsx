@@ -1,8 +1,5 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-
+import { NextImage as Image } from "@/petalsphere/lib/next-image";
 export function IntroductionSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

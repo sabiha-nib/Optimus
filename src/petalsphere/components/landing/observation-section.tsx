@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import { Eye, BarChart3, Lightbulb } from "lucide-react";
 

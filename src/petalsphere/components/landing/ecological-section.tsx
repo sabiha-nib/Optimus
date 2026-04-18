@@ -1,8 +1,5 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-
+import { NextImage as Image } from "@/petalsphere/lib/next-image";
 const interactions = [
   {
     title: "Adaptive Irrigation",

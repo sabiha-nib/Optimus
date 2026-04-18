@@ -1,14 +1,12 @@
-"use client"
-
 import React, { useRef, useEffect, useState, useCallback } from "react"
-import { IntroAnimation, INTRO_DURATION_MS, HERO_REVEAL_MS } from "@/components/intro-animation"
-import { AgentInterface } from "@/components/agent-interface"
-import { PixelIcon } from "@/components/pixel-icon"
-import { LiveAgentFeed, LiveAgentCounter } from "@/components/live-agent-feed"
-import { RevealText } from "@/components/reveal-text"
-import { StackingAgentCards } from "@/components/stacking-agent-cards"
-import { MobileNav } from "@/components/mobile-nav"
-import { DevExSection } from "@/components/devex-section"
+import { IntroAnimation, INTRO_DURATION_MS, HERO_REVEAL_MS } from "@/aiweb/components/intro-animation"
+import { AgentInterface } from "@/aiweb/components/agent-interface"
+import { PixelIcon } from "@/aiweb/components/pixel-icon"
+import { LiveAgentFeed, LiveAgentCounter } from "@/aiweb/components/live-agent-feed"
+import { RevealText } from "@/aiweb/components/reveal-text"
+import { StackingAgentCards } from "@/aiweb/components/stacking-agent-cards"
+import { MobileNav } from "@/aiweb/components/mobile-nav"
+import { DevExSection } from "@/aiweb/components/devex-section"
 
 // ─── Intersection Observer hook ──────────────────────────────────────────────
 function useInView(threshold = 0.15) {

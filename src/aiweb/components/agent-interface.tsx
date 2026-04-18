@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useRef, useState, useCallback } from "react"
 import { GitPullRequest, GitMerge, MessageSquare, CheckCircle2, Clock, AlertCircle, Zap, GitCommit, Eye, Terminal } from "lucide-react"
 

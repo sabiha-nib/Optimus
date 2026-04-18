@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useState } from "react"
 
 const LETTERS = ["A", "G", "E", "N", "T", "I", "C"]

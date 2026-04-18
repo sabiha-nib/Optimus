@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useRef, useState } from "react"
 
 // Splits text into words and reveals each with staggered opacity+blur+translateY

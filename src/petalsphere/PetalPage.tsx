@@ -1,21 +1,21 @@
-import { Navigation } from "@/components/landing/navigation";
-import { HeroSection } from "@/components/landing/hero-section";
-import { IntroductionSection } from "@/components/landing/introduction-section";
-import { ResearchContextSection } from "@/components/landing/research-context-section";
-import { FeaturesSection } from "@/components/landing/features-section";
-import { HowItWorksSection } from "@/components/landing/how-it-works-section";
-import { ScienceSection } from "@/components/landing/science-section";
-import { ObservationSection } from "@/components/landing/observation-section";
-import { InfrastructureSection } from "@/components/landing/infrastructure-section";
-import { MetricsSection } from "@/components/landing/metrics-section";
-import { EcologicalSection } from "@/components/landing/ecological-section";
-import { AIThinkingSection } from "@/components/landing/ai-thinking-section";
-import { EthicalSection } from "@/components/landing/ethical-section";
-import { DevelopersSection } from "@/components/landing/developers-section";
-import { TestimonialsSection } from "@/components/landing/testimonials-section";
-import { PricingSection } from "@/components/landing/pricing-section";
-import { FutureSection } from "@/components/landing/future-section";
-import { FooterSection } from "@/components/landing/footer-section";
+import { Navigation } from "@/petalsphere/components/landing/navigation";
+import { HeroSection } from "@/petalsphere/components/landing/hero-section";
+import { IntroductionSection } from "@/petalsphere/components/landing/introduction-section";
+import { ResearchContextSection } from "@/petalsphere/components/landing/research-context-section";
+import { FeaturesSection } from "@/petalsphere/components/landing/features-section";
+import { HowItWorksSection } from "@/petalsphere/components/landing/how-it-works-section";
+import { ScienceSection } from "@/petalsphere/components/landing/science-section";
+import { ObservationSection } from "@/petalsphere/components/landing/observation-section";
+import { InfrastructureSection } from "@/petalsphere/components/landing/infrastructure-section";
+import { MetricsSection } from "@/petalsphere/components/landing/metrics-section";
+import { EcologicalSection } from "@/petalsphere/components/landing/ecological-section";
+import { AIThinkingSection } from "@/petalsphere/components/landing/ai-thinking-section";
+import { EthicalSection } from "@/petalsphere/components/landing/ethical-section";
+import { DevelopersSection } from "@/petalsphere/components/landing/developers-section";
+import { TestimonialsSection } from "@/petalsphere/components/landing/testimonials-section";
+import { PricingSection } from "@/petalsphere/components/landing/pricing-section";
+import { FutureSection } from "@/petalsphere/components/landing/future-section";
+import { FooterSection } from "@/petalsphere/components/landing/footer-section";
 
 export default function Home() {
   return (

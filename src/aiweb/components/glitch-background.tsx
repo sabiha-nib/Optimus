@@ -1,5 +1,3 @@
-"use client"
-
 import { useRef, useEffect } from "react"
 import { Canvas, useThree, useLoader, useFrame } from "@react-three/fiber"
 import * as THREE from "three"
