@@ -3,28 +3,28 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const insights = [
   {
-    quote: "We can only see a short distance ahead, but we can see plenty there that needs to be done.",
-    topic: "Alan Turing",
-    context: "Computing Machinery and Intelligence, 1950",
-    metric: { value: "1950", label: "The founding question" },
+    quote: "Artificial intelligence is not one invention but a long conversation — a question humans keep asking machines, in different forms, decade after decade.",
+    topic: "The Optimist",
+    context: "AI as humanity's greatest amplifier",
+    metric: { value: "Tool", label: "A new kind of instrument" },
   },
   {
-    quote: "Machine intelligence is the last invention that humanity will ever need to make.",
-    topic: "Nick Bostrom",
-    context: "Philosopher, University of Oxford",
-    metric: { value: "Frontier", label: "Long-term implications" },
+    quote: "The most important question is no longer whether machines can think, but what we should be willing to let them decide on our behalf.",
+    topic: "The Skeptic",
+    context: "Caution before capability",
+    metric: { value: "Limits", label: "Where humans must stay in charge" },
   },
   {
-    quote: "It is difficult to think of a major industry that AI will not transform — including healthcare, education, transportation, retail, communications, and agriculture.",
-    topic: "Andrew Ng",
-    context: "AI researcher and educator",
-    metric: { value: "Every", label: "Industry affected" },
+    quote: "AI is best understood as a general-purpose technology — like electricity or the internet — quietly reshaping nearly every industry it touches.",
+    topic: "The Realist",
+    context: "AI as infrastructure, not magic",
+    metric: { value: "Every", label: "Industry it touches" },
   },
   {
-    quote: "Artificial intelligence is the new electricity. Just as electricity transformed almost everything 100 years ago, AI will transform every industry.",
-    topic: "General-Purpose Tech",
-    context: "How researchers describe AI's reach",
-    metric: { value: "GPT", label: "General-purpose technology" },
+    quote: "The systems we build today are mirrors. They reflect our data, our priorities, and our blind spots — and then scale them to billions of decisions.",
+    topic: "The Ethicist",
+    context: "On values, bias and accountability",
+    metric: { value: "Mirror", label: "AI reflects its makers" },
   },
 ];
 
