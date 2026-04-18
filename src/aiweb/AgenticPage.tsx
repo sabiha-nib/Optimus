@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from "react"
+import { Link } from "react-router-dom"
 import { IntroAnimation, INTRO_DURATION_MS, HERO_REVEAL_MS } from "@/aiweb/components/intro-animation"
 import { AgentInterface } from "@/aiweb/components/agent-interface"
 import { PixelIcon } from "@/aiweb/components/pixel-icon"
@@ -523,73 +524,41 @@ export default function AgenticPage() {
         </div>
       </section>
 
-      {/* ── PRICING ───────────────────────────────────���────������─────────────── */}
+      {/* ── DEEP DIVE CTA ─────────────────────────────────────────────────── */}
       <section id="pricing" className="py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 flex flex-col items-center">
+          <div className="text-center mb-12 flex flex-col items-center">
             <PixelIcon type="pricing" size={40} />
             <div className="mt-4"><Tag>LEARN MORE</Tag></div>
             <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
               {"Continue your\njourney into AI."}
             </RevealText>
+            <p className="mt-6 max-w-xl text-sm text-black/50 leading-relaxed">
+              You&rsquo;ve seen the overview. The deep dive walks through the history, the science,
+              the ethics and the future of artificial intelligence in long form.
+            </p>
+            <Link
+              to="/petalsphere"
+              className="mt-10 inline-flex items-center gap-3 px-7 py-3.5 rounded-xl bg-[#111] text-white text-sm tracking-widest hover:bg-[#333] transition-colors"
+            >
+              EXPLORE THE DEEP DIVE
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3" onMouseMove={handleMouse}>
-            {[
-              {
-                name: "Sandbox",
-                price: "Free",
-                sub: "Start experimenting",
-                features: ["5 agents", "1,000 tasks/mo", "Community support", "Basic traces"],
-                delay: 0,
-              },
-              {
-                name: "Builder",
-                price: "$49",
-                period: "/mo",
-                sub: "For teams shipping fast",
-                features: ["50 agents", "100K tasks/mo", "Priority support", "Full traces + replay", "Custom tools", "REST API"],
-                highlight: true,
-                delay: 80,
-              },
-              {
-                name: "Enterprise",
-                price: "Custom",
-                sub: "For orgs at scale",
-                features: ["Unlimited agents", "Unlimited tasks", "Dedicated infra", "SOC 2 / HIPAA", "SLA guarantees", "Custom contracts"],
-                delay: 140,
-              },
-            ].map((plan) => (
-              <BentoCard
-                key={plan.name}
-                className={`p-8 flex flex-col ${plan.highlight ? "border-black/20 bg-[#F0EEE8]" : ""}`}
-                delay={plan.delay}
-              >
-                <div className="mb-8">
-                  <div className="font-pixel text-[11px] tracking-widest text-black/40 mb-4">{plan.name}</div>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-4xl font-light">{plan.price}</span>
-                    {plan.period && <span className="text-black/40 text-sm">{plan.period}</span>}
-                  </div>
-                  <p className="text-xs text-black/35 tracking-wide">{plan.sub}</p>
-                </div>
-                <ul className="space-y-3 flex-1 mb-8">
-                  {plan.features.map(f => (
-                    <li key={f} className="flex items-center gap-3 text-sm text-black/55">
-                      <div className="w-1 h-1 rounded-full bg-black/25 shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <button className={`w-full py-3 rounded-xl text-sm tracking-widest transition-all duration-200 ${
-                  plan.highlight
-                    ? "bg-[#111] text-white hover:bg-[#333]"
-                    : "border border-black/10 text-black/60 hover:border-black/25 hover:text-black hover:bg-black/[0.04]"
-                }`}>
-                  {plan.name === "Enterprise" ? "CONTACT SALES" : "GET STARTED"}
-                </button>
-              </BentoCard>
-            ))}
+          <div className="mt-12 relative rounded-2xl overflow-hidden border border-black/[0.06]">
+            <img
+              src="/aiweb/images/arc.png"
+              alt="A continuation into the deep dive on artificial intelligence"
+              className="w-full h-[320px] md:h-[420px] object-cover object-center"
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(245,244,240,0.85) 0%, rgba(245,244,240,0.15) 45%, transparent 100%)",
+              }}
+            />
           </div>
         </div>
       </section>
