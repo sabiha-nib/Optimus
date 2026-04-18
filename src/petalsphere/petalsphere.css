@@ -1,0 +1,132 @@
+/* ===================================================================== */
+/*  PetalSphere theme — scoped under .theme-petalsphere                   */
+/*  Original tokens were oklch; mapped to HSL for Tailwind v3 compatibility */
+/* ===================================================================== */
+.theme-petalsphere {
+  --background: 240 10% 4%;
+  --foreground: 60 6% 94%;
+  --card: 240 10% 6%;
+  --card-foreground: 60 6% 94%;
+  --popover: 240 10% 6%;
+  --popover-foreground: 60 6% 94%;
+  --primary: 60 6% 94%;
+  --primary-foreground: 240 10% 4%;
+  --secondary: 240 8% 9%;
+  --secondary-foreground: 60 6% 94%;
+  --muted: 240 8% 9%;
+  --muted-foreground: 60 4% 55%;
+  --accent: 240 8% 11%;
+  --accent-foreground: 60 6% 94%;
+  --destructive: 0 75% 55%;
+  --destructive-foreground: 60 6% 94%;
+  --border: 240 8% 15%;
+  --input: 240 8% 11%;
+  --ring: 60 6% 94%;
+  --radius: 0.25rem;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.theme-petalsphere .font-display {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+.theme-petalsphere .font-sans {
+  font-family: "Instrument Sans", system-ui, sans-serif;
+}
+.theme-petalsphere .font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.theme-petalsphere .text-stroke {
+  -webkit-text-stroke: 1.5px currentColor;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-petalsphere .marquee {
+  animation: ps-marquee 30s linear infinite;
+}
+.theme-petalsphere .marquee-reverse {
+  animation: ps-marquee-reverse 25s linear infinite;
+}
+
+@keyframes ps-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes ps-marquee-reverse {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.theme-petalsphere .line-reveal {
+  clip-path: inset(0 100% 0 0);
+  animation: ps-line-reveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+@keyframes ps-line-reveal {
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.theme-petalsphere .hover-lift {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.theme-petalsphere .hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.theme-petalsphere .letter-spin {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.theme-petalsphere .letter-spin:hover {
+  transform: rotateY(360deg);
+}
+
+.theme-petalsphere .animate-char-in {
+  animation: ps-char-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateY(60%);
+}
+@keyframes ps-char-in {
+  0%   { opacity: 0; transform: translateY(60%); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.theme-petalsphere .noise-overlay {
+  position: relative;
+}
+.theme-petalsphere .noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.theme-petalsphere .how-it-works-bg {
+  background-color: hsl(240 10% 6%);
+}
+
+.theme-petalsphere .word-gradient {
+  background: linear-gradient(
+    45deg,
+    #eca8d6 0%,
+    #a78bfa 25%,
+    #67e8f9 50%,
+    #fbbf24 75%,
+    #eca8d6 100%
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ps-gradient-shift 1.5s ease infinite;
+}
+@keyframes ps-gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
