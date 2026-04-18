@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from "react"
+import { Link } from "react-router-dom"
 import { IntroAnimation, INTRO_DURATION_MS, HERO_REVEAL_MS } from "@/aiweb/components/intro-animation"
 import { AgentInterface } from "@/aiweb/components/agent-interface"
 import { PixelIcon } from "@/aiweb/components/pixel-icon"
