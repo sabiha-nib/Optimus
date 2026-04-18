@@ -109,7 +109,7 @@ export function ChapterThreeSection() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes drawLine {
           from { stroke-dashoffset: 1000; stroke-dasharray: 1000; }
           to { stroke-dashoffset: 0; stroke-dasharray: 1000; }

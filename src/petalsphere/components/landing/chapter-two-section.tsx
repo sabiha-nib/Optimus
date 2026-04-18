@@ -112,7 +112,7 @@ export function ChapterTwoSection() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes dropFall {
           0% { top: -5%; opacity: 0; }
           10% { opacity: 0.6; }

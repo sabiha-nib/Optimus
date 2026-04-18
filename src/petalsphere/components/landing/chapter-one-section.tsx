@@ -114,7 +114,7 @@ export function ChapterOneSection() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
           25% { transform: translateY(-20px) translateX(10px); opacity: 0.6; }

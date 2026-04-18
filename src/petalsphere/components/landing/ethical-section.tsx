@@ -168,7 +168,7 @@ export function EthicalSection() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes floatBubble {
           0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
           50% { transform: translateY(-30px) scale(1.1); opacity: 0.6; }

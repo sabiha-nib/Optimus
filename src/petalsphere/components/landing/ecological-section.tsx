@@ -185,7 +185,7 @@ export function EcologicalSection() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes drawLine {
           0%, 100% { stroke-dashoffset: 1000; stroke-dasharray: 1000; }
           50% { stroke-dashoffset: 0; }

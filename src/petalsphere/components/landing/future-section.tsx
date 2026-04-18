@@ -208,7 +208,7 @@ export function FutureSection() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes floatGentle {
           0%, 100% { transform: translateY(0px) translateX(0px); }
           33% { transform: translateY(-15px) translateX(8px); }
