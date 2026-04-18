@@ -147,9 +147,9 @@ export function FooterSection() {
                         className="text-sm text-white/40 hover:text-white transition-colors inline-flex items-center gap-2"
                       >
                         {link.name}
-                        {"badge" in link && link.badge && (
+                        {"badge" in link && (link as { badge?: string }).badge && (
                           <span className="text-xs px-2 py-0.5 bg-white text-black rounded-full">
-                            {link.badge}
+                            {(link as { badge?: string }).badge}
                           </span>
                         )}
                       </a>
