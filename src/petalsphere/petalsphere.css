@@ -25,18 +25,21 @@
   --radius: 0.25rem;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-family: "Instrument Serif", Georgia, serif;
   -webkit-font-smoothing: antialiased;
 }
 
-.theme-petalsphere .font-display {
+/* Use the navigation's font (Instrument Serif) across the entire PetalSphere page */
+.theme-petalsphere,
+.theme-petalsphere *:not(.font-mono):not(.font-mono *) {
   font-family: "Instrument Serif", Georgia, serif;
 }
+.theme-petalsphere .font-display,
 .theme-petalsphere .font-sans {
-  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-family: "Instrument Serif", Georgia, serif;
 }
 .theme-petalsphere .font-mono {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Instrument Serif", Georgia, serif;
 }
 
 .theme-petalsphere .text-stroke {
