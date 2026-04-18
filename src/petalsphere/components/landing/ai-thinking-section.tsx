@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const steps = [
-  { label: "Input", description: "Sensors collect environmental data" },
-  { label: "Processing", description: "AI analyzes patterns and conditions" },
-  { label: "Decision", description: "Algorithms determine optimal actions" },
-  { label: "Action", description: "Systems execute precise adjustments" },
-  { label: "Learning", description: "Results improve future decisions" },
+  { label: "Input", description: "Raw data enters the model" },
+  { label: "Encode", description: "Inputs are turned into vectors" },
+  { label: "Reason", description: "Layers transform representations" },
+  { label: "Predict", description: "The model produces an output" },
+  { label: "Learn", description: "Errors update the parameters" },
 ];
 
 export function AIThinkingSection() {
@@ -44,7 +44,7 @@ export function AIThinkingSection() {
             }`}
           >
             <span className="w-12 h-px bg-background/20" />
-            How AI Thinks
+            Inside the Model
             <span className="w-12 h-px bg-background/20" />
           </span>
 
@@ -53,9 +53,9 @@ export function AIThinkingSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            The intelligence
+            How a neural
             <br />
-            <span className="text-background/40">cycle.</span>
+            <span className="text-background/40">network thinks.</span>
           </h2>
         </div>
 
