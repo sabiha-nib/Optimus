@@ -1,21 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 
 const features = [
-  { 
-    title: "Real-time monitoring", 
-    description: "Watch your garden data flow and AI decisions live."
+  {
+    title: "Open frameworks",
+    description: "PyTorch, TensorFlow and JAX have made advanced AI research broadly accessible.",
   },
-  { 
-    title: "Historical analysis", 
-    description: "Track growth patterns and optimize over seasons."
+  {
+    title: "Pre-trained models",
+    description: "Open-weight models let anyone fine-tune state-of-the-art systems on their own data.",
   },
-  { 
-    title: "Custom automation", 
-    description: "Create rules that match your garden's unique needs."
+  {
+    title: "Cloud APIs",
+    description: "Hosted endpoints from major providers turn AI capability into a single HTTP call.",
   },
-  { 
-    title: "Mobile access", 
-    description: "Monitor and control your garden from anywhere."
+  {
+    title: "On-device AI",
+    description: "Smaller, optimised models now run privately on phones, laptops and edge sensors.",
   },
 ];
 
@@ -50,13 +50,10 @@ export function DevelopersSection() {
           aria-hidden="true"
           className="w-full h-full object-cover object-left-top"
         />
-        {/* Fade left edge */}
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
-        {/* Fade top edge */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-transparent" />
       </div>
 
-      {/* All text content sits on top */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header — Full width */}
         <div
@@ -66,12 +63,12 @@ export function DevelopersSection() {
         >
           <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
             <span className="w-8 h-px bg-foreground/30" />
-            Data in Motion
+            Tools &amp; Access
           </span>
           <h2 className="text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9]">
-            See your garden.
+            AI is no longer
             <br />
-            <span className="text-muted-foreground">Understand the data.</span>
+            <span className="text-muted-foreground">locked in the lab.</span>
           </h2>
         </div>
 
@@ -82,8 +79,9 @@ export function DevelopersSection() {
           }`}
         >
           <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-md">
-            Interactive dashboards show environmental trends, plant health scores, 
-            and AI decisions in real-time visual displays.
+            A handful of open frameworks, pre-trained models and accessible APIs have
+            turned what was once frontier research into something any motivated developer,
+            student or curious learner can build with.
           </p>
           <div className="grid grid-cols-2 gap-6">
             {features.map((feature, index) => (

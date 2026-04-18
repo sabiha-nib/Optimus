@@ -4,23 +4,23 @@ import { Brain, Scale, Users } from "lucide-react";
 const reflections = [
   {
     icon: Brain,
-    title: "Intelligence in Natural Systems",
+    title: "Bias and Fairness",
     description:
-      "Plants exhibit sophisticated information processing: roots grow toward water, leaves orient toward light, and chemical signals coordinate responses across the entire organism. Is this intelligence? The question reveals the assumptions embedded in our definitions.",
+      "AI systems learn from human data — and inherit human biases. A model trained on historical hiring records may quietly reproduce decades of discrimination. Building fair AI means scrutinising datasets, auditing outputs, and accepting that neutrality is never automatic.",
     color: "#eca8d6",
   },
   {
     icon: Scale,
-    title: "Observation and Intervention",
+    title: "Transparency and Trust",
     description:
-      "Every measurement affects the system being measured, and every intervention carries consequences beyond its immediate target. Where does beneficial assistance end and unwarranted interference begin? These boundaries require ongoing negotiation.",
+      "Modern neural networks contain billions of parameters whose individual roles no human can fully explain. As AI is deployed in medicine, law and finance, the field is racing to develop tools that can interpret a model's reasoning so the systems we depend on are not pure black boxes.",
     color: "#7dd3fc",
   },
   {
     icon: Users,
-    title: "The Human Role",
+    title: "Alignment and Control",
     description:
-      "As machines assume tasks previously requiring human attention, what remains for the cultivator? Perhaps the role evolves from execution to intention-setting. Technology serves; humans direct.",
+      "How do we make sure powerful AI systems pursue what humans actually intend, not a narrow proxy that happens to be measurable? Alignment research asks how to encode values, preferences and safety constraints into models that may one day exceed our ability to oversee them in detail.",
     color: "#a5f3fc",
   },
 ];
@@ -71,7 +71,7 @@ export function EthicalSection() {
             }`}
           >
             <span className="w-12 h-px bg-foreground/20" />
-            Philosophical Reflection
+            Ethics &amp; Responsibility
             <span className="w-12 h-px bg-foreground/20" />
           </span>
 
@@ -80,9 +80,9 @@ export function EthicalSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Questions of
+            The harder
             <br />
-            <span className="text-muted-foreground">meaning and method.</span>
+            <span className="text-muted-foreground">questions.</span>
           </h2>
 
           <p
@@ -90,9 +90,10 @@ export function EthicalSection() {
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            The integration of artificial intelligence into living systems raises questions 
-            that extend beyond technical implementation into the realm of values, 
-            meaning, and the nature of our relationship with the natural world.
+            As artificial intelligence moves from research labs into hospitals, courts and
+            classrooms, the most interesting questions stop being purely technical. They
+            become questions about fairness, accountability, power and what kind of future
+            we are choosing to build.
           </p>
         </div>
 
@@ -104,7 +105,7 @@ export function EthicalSection() {
               className={`group relative p-8 lg:p-10 border transition-all duration-500 cursor-default overflow-hidden ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
-              style={{ 
+              style={{
                 transitionDelay: `${index * 100}ms`,
                 borderColor: hoveredIndex === index ? `${item.color}50` : "rgba(var(--foreground-rgb), 0.1)",
                 backgroundColor: hoveredIndex === index ? `${item.color}08` : "rgba(var(--foreground-rgb), 0.02)",
@@ -112,8 +113,7 @@ export function EthicalSection() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Animated corner accent */}
-              <div 
+              <div
                 className="absolute top-0 right-0 w-24 h-24 transition-all duration-500"
                 style={{
                   background: `radial-gradient(circle at top right, ${item.color}30, transparent 70%)`,
@@ -121,8 +121,7 @@ export function EthicalSection() {
                 }}
               />
 
-              {/* Icon with rotation animation */}
-              <div 
+              <div
                 className="w-14 h-14 flex items-center justify-center border mb-8 transition-all duration-500"
                 style={{
                   borderColor: hoveredIndex === index ? item.color : "rgba(var(--foreground-rgb), 0.2)",
@@ -134,14 +133,11 @@ export function EthicalSection() {
                 <item.icon className="w-6 h-6" />
               </div>
 
-              {/* Title */}
               <h3 className="text-xl font-display mb-4 group-hover:translate-x-1 transition-transform duration-300">{item.title}</h3>
 
-              {/* Description */}
               <p className="text-muted-foreground leading-relaxed text-sm group-hover:text-foreground/70 transition-colors duration-300">{item.description}</p>
 
-              {/* Bottom glow line */}
-              <div 
+              <div
                 className="absolute bottom-0 left-0 h-px w-full transition-all duration-500"
                 style={{
                   background: `linear-gradient(to right, transparent, ${item.color}, transparent)`,
@@ -158,12 +154,11 @@ export function EthicalSection() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          {/* Ambient glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#eca8d6]/5 via-transparent to-[#7dd3fc]/5 opacity-0 hover:opacity-100 transition-opacity duration-700" />
-          
+
           <p className="text-2xl lg:text-3xl font-display text-foreground/90 leading-relaxed max-w-4xl mx-auto relative z-10">
-            &ldquo;The question is not whether machines can think, but whether humans 
-            will remain thoughtful in how we deploy them.&rdquo;
+            &ldquo;The question is not only what artificial intelligence can do, but what
+            we want it to do — and who gets to decide.&rdquo;
           </p>
         </div>
       </div>

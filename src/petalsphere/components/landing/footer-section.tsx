@@ -3,20 +3,20 @@ import { useEffect, useRef } from "react";
 
 const footerLinks = {
   Chapters: [
-    { name: "Technical Foundations", href: "#features" },
-    { name: "Methodology", href: "#how-it-works" },
-    { name: "Research Context", href: "#science" },
-    { name: "Future Directions", href: "#future" },
+    { name: "Definition", href: "#features" },
+    { name: "How AI Works", href: "#how-it-works" },
+    { name: "The Science", href: "#science" },
+    { name: "Future of AI", href: "#future" },
   ],
-  Research: [
-    { name: "Scientific Background", href: "#science" },
-    { name: "Case Studies", href: "#" },
-    { name: "Data Sources", href: "#" },
-    { name: "Bibliography", href: "#" },
+  Learn: [
+    { name: "Glossary", href: "#" },
+    { name: "Reading List", href: "#" },
+    { name: "Key Papers", href: "#" },
+    { name: "References", href: "#" },
   ],
   About: [
-    { name: "Research Goals", href: "#" },
-    { name: "Methodology", href: "#" },
+    { name: "Our Approach", href: "#" },
+    { name: "Editorial Notes", href: "#" },
     { name: "Contributors", href: "#" },
     { name: "Contact", href: "#" },
   ],
@@ -96,16 +96,14 @@ export function FooterSection() {
       <div className="relative w-full h-[340px] md:h-[420px] overflow-hidden">
         <img
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Upscaled%20Image%20%2810%29-UnDKstODkIENp5xqTYUEpt0Sm8tNOw.png"
-          alt="Bioluminescent landscape"
+          alt="A horizon of computational light"
           className="w-full h-full object-cover object-center"
         />
-        {/* Gradient fade to black at bottom */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black" />
-        {/* Subtle dark vignette on sides */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
       </div>
 
-      {/* Footer content — black background, white text */}
+      {/* Footer content */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Main Footer */}
         <div className="py-16 lg:py-20">
@@ -113,11 +111,12 @@ export function FooterSection() {
             {/* Brand Column */}
             <div className="col-span-2">
               <a href="#" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display text-white">Petalsphere</span>
+                <span className="text-2xl font-display text-white">What is AI?</span>
               </a>
 
               <p className="text-white/50 leading-relaxed mb-8 max-w-xs text-sm">
-                An exploration of how computational systems intersect with botanical cultivation. A scientific investigation into the emerging field of AI-assisted horticulture.
+                A long-form, illustrated guide to artificial intelligence — what it is,
+                how it works, where it came from, and where it might be going.
               </p>
 
               {/* Social Links */}
@@ -164,13 +163,13 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-white/30">
-            &copy; 2026 Petalsphere. An exploration of artificial intelligence in horticulture.
+            &copy; 2026 What is AI? — An educational guide to artificial intelligence.
           </p>
 
           <div className="flex items-center gap-4 text-sm text-white/30">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#eca8d6]" />
-              Research ongoing
+              Continuously updated
             </span>
           </div>
         </div>
