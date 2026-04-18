@@ -1,37 +1,37 @@
 import { useEffect, useRef, useState } from "react";
 import { NextImage as Image } from "@/petalsphere/lib/next-image";
+
 const features = [
   {
     number: "01",
-    title: "Environmental Sensing",
-    description: "Capacitive soil moisture probes, thermocouples, and photodiode arrays collect continuous streams of environmental data. Each measurement represents a point in a multidimensional space describing the conditions experienced by plants at any given moment.",
-    stats: { value: "Continuous", label: "data collection" },
+    title: "Data",
+    description: "Modern AI is fueled by enormous, varied datasets — text, images, audio, sensor readings, transactions. Data is what teaches a model the structure of the world; without it, even the most sophisticated algorithm has nothing to learn from.",
+    stats: { value: "Petabyte-scale", label: "training corpora" },
     color: "#eca8d6",
   },
   {
     number: "02",
-    title: "Pattern Recognition",
-    description: "Convolutional neural networks trained on botanical datasets identify morphological patterns indicating plant health status. These systems detect spectral signatures of chlorophyll degradation and textural changes indicating pathogen presence.",
-    stats: { value: "Multi-spectral", label: "analysis" },
+    title: "Algorithms",
+    description: "From decision trees to transformers, algorithms define how a model turns data into predictions. Each family of algorithms makes different assumptions about the world, and choosing the right one is a craft as much as a science.",
+    stats: { value: "Neural networks", label: "as the modern engine" },
     color: "#7dd3fc",
   },
   {
     number: "03",
-    title: "Predictive Modeling",
-    description: "Regression algorithms correlate environmental variables with growth outcomes, generating probabilistic forecasts of future plant states. These models improve through feedback, refining predictions as actual outcomes become available.",
-    stats: { value: "Adaptive", label: "learning" },
+    title: "Compute",
+    description: "Training a state-of-the-art model can require thousands of specialised processors running in parallel for weeks. Advances in GPUs and TPUs have turned compute from a constraint into an accelerator of every recent AI breakthrough.",
+    stats: { value: "Exa-FLOPs", label: "of training power" },
     color: "#a5f3fc",
   },
   {
     number: "04",
-    title: "Feedback Systems",
-    description: "Closed-loop control architectures translate analytical outputs into physical interventions: valve positions adjusted, light spectra modulated, nutrient concentrations modified. Each action generates new data, completing cycles of observation and response.",
-    stats: { value: "Real-time", label: "response" },
+    title: "Models",
+    description: "A trained model is the distilled product of data, algorithms and compute — a compact mathematical object that can answer questions, generate content, or control systems. Models are how knowledge becomes deployable software.",
+    stats: { value: "Billions", label: "of parameters" },
     color: "#fbbf24",
   },
 ];
 
-// Floating dot particles visualization
 function ParticleVisualization() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(0);
@@ -62,7 +62,6 @@ function ParticleVisualization() {
     };
     canvas.addEventListener("mousemove", handleMouseMove);
 
-    // Generate stable particle positions
     const COUNT = 70;
     const particles = Array.from({ length: COUNT }, (_, i) => {
       const seed = i * 1.618;
@@ -80,7 +79,6 @@ function ParticleVisualization() {
       const rect = canvas.getBoundingClientRect();
       const w = rect.width;
       const h = rect.height;
-
       ctx.clearRect(0, 0, w, h);
 
       const mx = mouseRef.current.x;
@@ -132,7 +130,7 @@ function ParticleVisualization() {
 
 export function FeaturesSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeFeature, setActiveFeature] = useState(0);
+  const [, setActiveFeature] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -143,7 +141,6 @@ export function FeaturesSection() {
       },
       { threshold: 0.1 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -155,13 +152,13 @@ export function FeaturesSection() {
       className="relative py-24 lg:py-32 overflow-hidden"
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Header - Full width with diagonal layout */}
+        {/* Header */}
         <div className="relative mb-24 lg:mb-32">
           <div className="grid lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
                 <span className="w-12 h-px bg-foreground/30" />
-                Technical Foundations
+                The Four Pillars
               </span>
               <h2
                 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
@@ -170,14 +167,16 @@ export function FeaturesSection() {
               >
                 Core
                 <br />
-                <span className="text-muted-foreground">systems.</span>
+                <span className="text-muted-foreground">ingredients.</span>
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pb-4">
               <p className={`text-xl text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}>
-                The application of machine learning to horticultural systems rests on four interconnected technological pillars, each contributing to an integrated framework for plant cultivation.
+                Every modern AI system, no matter how spectacular its output, rests on the same
+                four ingredients: data to learn from, algorithms to learn with, compute to
+                power the learning, and a model that captures what was learned.
               </p>
             </div>
           </div>
@@ -185,14 +184,12 @@ export function FeaturesSection() {
 
         {/* Bento Grid Layout */}
         <div className="grid lg:grid-cols-12 gap-4 lg:gap-6">
-          {/* Large feature card */}
-          <div 
+          <div
             className={`lg:col-span-12 relative bg-black border border-foreground/10 min-h-[500px] overflow-hidden group transition-all duration-700 flex hover:border-[#eca8d6]/30 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             }`}
             onMouseEnter={() => setActiveFeature(0)}
           >
-            {/* Left: text content */}
             <div className="relative flex-1 p-8 lg:p-12 bg-black">
               <ParticleVisualization />
               <div className="relative z-10">
@@ -210,7 +207,6 @@ export function FeaturesSection() {
               </div>
             </div>
 
-            {/* Right: mirrored image, full height */}
             <div className="hidden lg:block relative w-[42%] shrink-0 overflow-hidden">
               <img
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Upscaled%20Image%20%2812%29-ng3RrNnsPMJ5CrtOjcPTmhHg01W11q.png"
@@ -219,27 +215,24 @@ export function FeaturesSection() {
                 className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 style={{ transform: "scaleX(-1)" }}
               />
-              {/* Fade left edge into black */}
               <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent" />
             </div>
           </div>
 
-          {/* Secondary feature cards */}
           {features.slice(1).map((feature, index) => (
-            <div 
+            <div
               key={feature.number}
               className={`lg:col-span-4 relative p-8 lg:p-10 border bg-foreground/[0.02] transition-all duration-500 cursor-default overflow-hidden ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
-              style={{ 
+              style={{
                 transitionDelay: `${(index + 1) * 100}ms`,
                 borderColor: hoveredIndex === index ? `${feature.color}50` : "rgba(var(--foreground-rgb), 0.1)",
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Animated gradient background */}
-              <div 
+              <div
                 className="absolute inset-0 transition-opacity duration-500"
                 style={{
                   background: `radial-gradient(circle at 0% 0%, ${feature.color}15, transparent 50%)`,
@@ -248,7 +241,7 @@ export function FeaturesSection() {
               />
 
               <div className="relative z-10">
-                <span 
+                <span
                   className="font-mono text-sm transition-colors duration-300"
                   style={{ color: hoveredIndex === index ? feature.color : "var(--muted-foreground)" }}
                 >
@@ -257,7 +250,7 @@ export function FeaturesSection() {
                 <h3 className="text-2xl font-display mt-4 mb-4 group-hover:translate-x-1 transition-transform duration-300">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm mb-6">{feature.description}</p>
                 <div className="pt-6 border-t border-foreground/10">
-                  <span 
+                  <span
                     className="text-3xl font-display transition-colors duration-300"
                     style={{ color: hoveredIndex === index ? feature.color : "inherit" }}
                   >
@@ -267,8 +260,7 @@ export function FeaturesSection() {
                 </div>
               </div>
 
-              {/* Animated border line */}
-              <div 
+              <div
                 className="absolute bottom-0 left-0 h-[2px] transition-all duration-500"
                 style={{
                   background: feature.color,
@@ -279,20 +271,19 @@ export function FeaturesSection() {
           ))}
         </div>
 
-        {/* Robot garden image showcase */}
         <div className={`mt-12 relative h-64 lg:h-80 overflow-hidden rounded-lg transition-all duration-1000 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
           <Image
             src="/petalsphere/images/organic-hands.png"
-            alt="AI-powered garden monitoring"
+            alt="Building blocks of artificial intelligence"
             fill
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           <div className="absolute bottom-6 left-6 right-6">
             <p className="text-sm text-foreground/70 font-mono">
-              Where artificial intelligence meets botanical cultivation
+              Where data, algorithms and compute meet — intelligence emerges
             </p>
           </div>
         </div>

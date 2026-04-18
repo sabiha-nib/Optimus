@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { NextImage as Image } from "@/petalsphere/lib/next-image";
+
 const regions = [
-  { name: "Soil Sensors", nodes: 12, status: "active", color: "#eca8d6" },
-  { name: "Climate Monitors", nodes: 8, status: "active", color: "#7dd3fc" },
-  { name: "Light Sensors", nodes: 6, status: "active", color: "#a5f3fc" },
-  { name: "Water Systems", nodes: 4, status: "active", color: "#fbbf24" },
+  { name: "Cloud GPUs",       nodes: 12, status: "running", color: "#eca8d6" },
+  { name: "Custom Chips (TPU/NPU)", nodes: 8,  status: "running", color: "#7dd3fc" },
+  { name: "Edge Devices",     nodes: 6,  status: "running", color: "#a5f3fc" },
+  { name: "Data Pipelines",   nodes: 4,  status: "running", color: "#fbbf24" },
 ];
 
 export function InfrastructureSection() {
@@ -20,7 +21,6 @@ export function InfrastructureSection() {
       },
       { threshold: 0.1 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -34,7 +34,6 @@ export function InfrastructureSection() {
 
   return (
     <section id="infra" ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
-      {/* Animated background lines */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
         {[...Array(8)].map((_, i) => (
           <div
@@ -48,61 +47,53 @@ export function InfrastructureSection() {
           />
         ))}
       </div>
-      
+
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Header */}
         <div className="mb-20">
           <span className={`inline-flex items-center gap-4 text-sm font-mono text-muted-foreground mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <span className="w-12 h-px bg-foreground/20" />
-            Living Systems
+            The Hardware of AI
           </span>
-          
+
           <div className="grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-16 items-stretch">
-            {/* Image globe */}
             <div className={`w-48 lg:w-72 xl:w-80 shrink-0 transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
               <img
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/world-3i68QNWJwmO7W19ztZWbevAwJQHzYL.png"
-                alt="Global network sphere"
+                alt="A globe of distributed compute"
                 className="w-full h-full object-contain object-center animate-slowSpin"
               />
             </div>
 
-            {/* Title + description */}
             <div className="flex flex-col justify-center">
               <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}>
-                Connected
+                Infrastructure
                 <br />
-                <span className="text-muted-foreground">ecosystem.</span>
+                <span className="text-muted-foreground">of intelligence.</span>
               </h2>
 
               <p className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-lg transition-all duration-1000 delay-100 ${
                 isVisible ? "opacity-100" : "opacity-0"
               }`}>
-                A network of sensors, AI models, and automated systems working together to create the perfect growing environment.
+                Behind every AI model is a global stack of specialised chips, distributed
+                training clusters and high-throughput data pipelines — the physical foundation
+                that makes modern intelligence possible.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Main content grid */}
         <div className="grid lg:grid-cols-3 gap-6">
-          {/* Large stat card */}
           <div className={`lg:col-span-2 relative p-8 lg:p-12 border border-foreground/10 bg-foreground/[0.02] overflow-hidden transition-all duration-700 hover:border-[#eca8d6]/30 group ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
-            {/* Animated dots background with connecting lines */}
             <div className="absolute inset-0 opacity-70">
-              {/* SVG for connecting lines */}
-              <svg
-                className="absolute inset-0 w-full h-full"
-                style={{ pointerEvents: "none" }}
-              >
+              <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: "none" }}>
                 <defs>
                   <style>{`
                     @keyframes drawLine {
@@ -128,10 +119,7 @@ export function InfrastructureSection() {
                   return (
                     <line
                       key={`line-${i}`}
-                      x1={`${x1}%`}
-                      y1={`${y1}%`}
-                      x2={`${x2}%`}
-                      y2={`${y2}%`}
+                      x1={`${x1}%`} y1={`${y1}%`} x2={`${x2}%`} y2={`${y2}%`}
                       className="connecting-line"
                       style={{ animationDelay: `${i * 0.15}s` }}
                     />
@@ -139,7 +127,6 @@ export function InfrastructureSection() {
                 })}
               </svg>
 
-              {/* Dots */}
               {[...Array(20)].map((_, i) => (
                 <div
                   key={i}
@@ -152,37 +139,36 @@ export function InfrastructureSection() {
                 />
               ))}
             </div>
-            
+
             <div className="relative z-10">
               <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-8xl lg:text-[10rem] font-display leading-none group-hover:text-[#eca8d6] transition-colors duration-500">30</span>
-                <span className="text-2xl text-muted-foreground">sensors</span>
+                <span className="text-8xl lg:text-[10rem] font-display leading-none group-hover:text-[#eca8d6] transition-colors duration-500">10K+</span>
+                <span className="text-2xl text-muted-foreground">GPUs</span>
               </div>
               <p className="text-muted-foreground max-w-md">
-                Smart sensors distributed throughout your garden for comprehensive environmental monitoring.
+                A frontier model is typically trained across thousands of accelerators wired
+                together as a single, massive learning machine.
               </p>
             </div>
           </div>
 
-          {/* Stacked stat cards */}
           <div className="flex flex-col gap-6">
             <div className={`p-8 border border-foreground/10 bg-foreground/[0.02] transition-all duration-500 hover:border-[#7dd3fc]/30 group ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`} style={{ transitionDelay: "100ms" }}>
-              <span className="text-5xl lg:text-6xl font-display group-hover:text-[#7dd3fc] transition-colors duration-300">40%</span>
-              <span className="block text-sm text-muted-foreground mt-2">Water savings</span>
+              <span className="text-5xl lg:text-6xl font-display group-hover:text-[#7dd3fc] transition-colors duration-300">10²⁴</span>
+              <span className="block text-sm text-muted-foreground mt-2">Floating-point operations to train a frontier model</span>
             </div>
-            
+
             <div className={`p-8 border border-foreground/10 bg-foreground/[0.02] transition-all duration-500 hover:border-[#a5f3fc]/30 group ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`} style={{ transitionDelay: "200ms" }}>
-              <span className="text-5xl lg:text-6xl font-display group-hover:text-[#a5f3fc] transition-colors duration-300">5min</span>
-              <span className="block text-sm text-muted-foreground mt-2">Data refresh rate</span>
+              <span className="text-5xl lg:text-6xl font-display group-hover:text-[#a5f3fc] transition-colors duration-300">ms</span>
+              <span className="block text-sm text-muted-foreground mt-2">Inference latency on optimised hardware</span>
             </div>
           </div>
         </div>
 
-        {/* Region list with enhanced hover */}
         <div className={`mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 transition-all duration-1000 delay-300 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
@@ -197,8 +183,7 @@ export function InfrastructureSection() {
               onMouseEnter={() => setHoveredRegion(index)}
               onMouseLeave={() => setHoveredRegion(null)}
             >
-              {/* Animated background glow */}
-              <div 
+              <div
                 className="absolute inset-0 transition-opacity duration-500"
                 style={{
                   background: `radial-gradient(circle at 50% 50%, ${region.color}20, transparent 70%)`,
@@ -208,9 +193,9 @@ export function InfrastructureSection() {
 
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-3">
-                  <span 
+                  <span
                     className="w-2 h-2 rounded-full transition-all duration-300"
-                    style={{ 
+                    style={{
                       backgroundColor: activeRegion === index || hoveredRegion === index ? region.color : "rgba(var(--foreground-rgb), 0.2)",
                       boxShadow: activeRegion === index || hoveredRegion === index ? `0 0 10px ${region.color}` : "none",
                     }}
@@ -220,11 +205,10 @@ export function InfrastructureSection() {
                   </span>
                 </div>
                 <span className="font-medium block mb-1">{region.name}</span>
-                <span className="text-sm text-muted-foreground">{region.nodes} nodes</span>
+                <span className="text-sm text-muted-foreground">{region.nodes} clusters</span>
               </div>
 
-              {/* Animated border line */}
-              <div 
+              <div
                 className="absolute bottom-0 left-0 h-[2px] transition-all duration-500"
                 style={{
                   background: region.color,
@@ -235,22 +219,22 @@ export function InfrastructureSection() {
           ))}
         </div>
 
-        {/* Whale image showcase */}
         <div className={`mt-16 grid lg:grid-cols-2 gap-8 items-center transition-all duration-1000 delay-400 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
           <div className="relative h-64 lg:h-80 overflow-hidden rounded-lg group">
             <Image
               src="/petalsphere/images/robot-garden.png"
-              alt="Organic data visualization"
+              alt="A landscape of distributed AI infrastructure"
               fill
               className="object-contain object-center group-hover:scale-105 transition-transform duration-700"
             />
           </div>
           <div className="p-8 lg:p-12 border border-foreground/10 bg-foreground/[0.02]">
             <p className="text-xl lg:text-2xl font-display leading-relaxed text-foreground/90">
-              Like organic systems in nature, data flows through interconnected networks, 
-              each node contributing to the collective intelligence of the ecosystem.
+              Every chatbot reply and every recommended video flows through this invisible
+              landscape — a planet-spanning grid of compute that turns mathematics into
+              everyday experience.
             </p>
           </div>
         </div>

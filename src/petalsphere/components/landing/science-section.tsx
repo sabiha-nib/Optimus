@@ -3,27 +3,27 @@ import { Cpu, Eye, Cloud, TrendingUp } from "lucide-react";
 
 const scienceTopics = [
   {
-    icon: Cpu,
-    title: "Soil Moisture Sensors",
-    description: "Capacitive sensors measure volumetric water content in real-time, enabling precise irrigation scheduling based on actual plant needs rather than estimates.",
+    icon: TrendingUp,
+    title: "Machine Learning",
+    description: "The branch of AI in which models improve at a task by being shown examples rather than being told the rules. Most everyday AI — spam filters, recommendations, fraud detection — is machine learning under the hood.",
     color: "#eca8d6",
+  },
+  {
+    icon: Cpu,
+    title: "Deep Learning",
+    description: "A family of machine-learning techniques built on multi-layered neural networks. Deep learning underlies image recognition, speech-to-text, and the large language models that have come to define modern AI.",
+    color: "#7dd3fc",
   },
   {
     icon: Eye,
     title: "Computer Vision",
-    description: "Neural networks analyze leaf patterns to detect early signs of disease, nutrient deficiencies, and pest damage before visible symptoms appear.",
-    color: "#7dd3fc",
-  },
-  {
-    icon: TrendingUp,
-    title: "Machine Learning Models",
-    description: "Classification algorithms predict optimal harvest times, growth trajectories, and resource requirements based on historical and environmental data.",
+    description: "Algorithms that interpret images and video — recognising faces, detecting tumors, reading road signs. Computer vision turns pixels into structured understanding of the visual world.",
     color: "#a5f3fc",
   },
   {
     icon: Cloud,
-    title: "Environmental Data Systems",
-    description: "IoT sensor networks collect microclimate data including temperature, humidity, light intensity, and CO2 levels for comprehensive ecosystem monitoring.",
+    title: "Natural Language Processing",
+    description: "The field that gives machines the ability to read, write, translate and converse. From search engines to chatbots, NLP is what makes computers genuinely useful with human language.",
     color: "#fbbf24",
   },
 ];
@@ -40,14 +40,12 @@ export function ScienceSection() {
       },
       { threshold: 0.1 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
-      {/* Background pattern */}
+    <section id="science" ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-5">
         {[...Array(20)].map((_, i) => (
           <div
@@ -64,7 +62,6 @@ export function ScienceSection() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Header with robot mascot */}
         <div className="mb-20 grid lg:grid-cols-2 gap-12 items-end">
           <div>
             <span
@@ -81,9 +78,9 @@ export function ScienceSection() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              Behind
+              Inside
               <br />
-              <span className="text-muted-foreground">the magic.</span>
+              <span className="text-muted-foreground">the field.</span>
             </h2>
 
             <p
@@ -91,14 +88,11 @@ export function ScienceSection() {
                 isVisible ? "opacity-100" : "opacity-0"
               }`}
             >
-              Understanding the technology that enables gardens to sense, adapt, and thrive autonomously.
+              Artificial intelligence is not a single technology — it is a family of related disciplines, each tackling a different facet of intelligent behaviour.
             </p>
           </div>
-
-
         </div>
 
-        {/* Science cards grid with enhanced effects */}
         <div className="grid md:grid-cols-2 gap-6">
           {scienceTopics.map((topic, index) => (
             <div
@@ -106,15 +100,14 @@ export function ScienceSection() {
               className={`group relative p-8 lg:p-10 border bg-foreground/[0.02] transition-all duration-500 cursor-default overflow-hidden ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
-              style={{ 
+              style={{
                 transitionDelay: `${index * 100}ms`,
                 borderColor: hoveredIndex === index ? `${topic.color}50` : "rgba(var(--foreground-rgb), 0.1)",
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Animated gradient background */}
-              <div 
+              <div
                 className="absolute inset-0 transition-opacity duration-500"
                 style={{
                   background: `radial-gradient(circle at 0% 0%, ${topic.color}15, transparent 50%)`,
@@ -123,7 +116,7 @@ export function ScienceSection() {
               />
 
               <div className="relative z-10 flex items-start gap-6">
-                <div 
+                <div
                   className="shrink-0 w-14 h-14 flex items-center justify-center border transition-all duration-500"
                   style={{
                     borderColor: hoveredIndex === index ? topic.color : "rgba(var(--foreground-rgb), 0.2)",
@@ -140,8 +133,7 @@ export function ScienceSection() {
                 </div>
               </div>
 
-              {/* Animated corner accent */}
-              <div 
+              <div
                 className="absolute bottom-0 right-0 w-24 h-24 transition-all duration-500"
                 style={{
                   background: `radial-gradient(circle at bottom right, ${topic.color}20, transparent 70%)`,
@@ -149,8 +141,7 @@ export function ScienceSection() {
                 }}
               />
 
-              {/* Animated border line */}
-              <div 
+              <div
                 className="absolute bottom-0 left-0 h-[2px] transition-all duration-500"
                 style={{
                   background: topic.color,
