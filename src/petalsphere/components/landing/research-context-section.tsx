@@ -1,25 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import { NextImage as Image } from "@/petalsphere/lib/next-image";
+
 const contexts = [
   {
     number: "01",
-    title: "The Natural Process",
+    title: "The Symbolic Era",
     description:
-      "Gardening, at its essence, is an act of collaboration with biological processes that operate according to their own internal logic. Plants convert light into chemical energy through photosynthesis, draw water and minerals through vascular systems, and respond to environmental stimuli through hormone-mediated signaling cascades.",
+      "From the 1950s onward, the first wave of AI tried to capture human thought as explicit rules and symbols. Programs proved theorems, played chess, and answered questions by manipulating logical statements written by hand. Powerful within narrow domains, these systems struggled with the messy, ambiguous nature of the real world.",
     color: "#eca8d6",
   },
   {
     number: "02",
-    title: "Environmental Dependencies",
+    title: "The Rise of Machine Learning",
     description:
-      "Every plant exists within a web of environmental relationships. Soil chemistry determines nutrient availability; ambient temperature influences enzymatic reaction rates; light spectrum and intensity drive photosynthetic efficiency; humidity affects transpiration and water stress.",
+      "By the 1990s, attention shifted from hand-crafted rules to algorithms that learn from data. Statistical methods, decision trees, and support vector machines could detect spam, recognise handwriting, and recommend products by extracting patterns from examples rather than explicit instructions.",
     color: "#7dd3fc",
   },
   {
     number: "03",
-    title: "Traditional Observation",
+    title: "The Deep Learning Revolution",
     description:
-      "For centuries, gardeners have relied on direct sensory observation: the color of leaves indicating nitrogen status, the feel of soil suggesting moisture content, the appearance of wilting signaling water stress. This knowledge represents pattern recognition honed across generations.",
+      "Since 2012, deep neural networks trained on massive datasets and powerful GPUs have redefined what machines can do. From near-human performance in image recognition to large language models that converse fluently, modern AI is built on layers of learned representations rather than handwritten logic.",
     color: "#a5f3fc",
   },
 ];
@@ -36,14 +37,12 @@ export function ResearchContextSection() {
       },
       { threshold: 0.1 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
     <section ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden bg-foreground/[0.02]">
-      {/* Animated background lines */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(5)].map((_, i) => (
           <div
@@ -67,7 +66,7 @@ export function ResearchContextSection() {
             }`}
           >
             <span className="w-12 h-px bg-foreground/20" />
-            Research Context
+            A Brief History
           </span>
 
           <h2
@@ -75,13 +74,12 @@ export function ResearchContextSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Understanding
+            Three eras
             <br />
-            <span className="text-muted-foreground">the baseline.</span>
+            <span className="text-muted-foreground">of artificial thought.</span>
           </h2>
         </div>
 
-        {/* Context cards with enhanced hover effects */}
         <div className="space-y-6">
           {contexts.map((context, index) => (
             <div
@@ -89,25 +87,23 @@ export function ResearchContextSection() {
               className={`group grid lg:grid-cols-12 gap-6 lg:gap-12 p-8 lg:p-12 border bg-background transition-all duration-500 cursor-default ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
-              style={{ 
+              style={{
                 transitionDelay: `${index * 150}ms`,
                 borderColor: hoveredIndex === index ? `${context.color}50` : "rgba(var(--foreground-rgb), 0.1)",
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Number with color animation */}
               <div className="lg:col-span-1 relative">
-                <span 
+                <span
                   className="text-4xl font-display transition-all duration-500"
                   style={{ color: hoveredIndex === index ? context.color : "rgba(var(--foreground-rgb), 0.2)" }}
                 >
                   {context.number}
                 </span>
-                {/* Glowing dot */}
-                <div 
+                <div
                   className="absolute top-2 -right-2 w-2 h-2 rounded-full transition-all duration-500"
-                  style={{ 
+                  style={{
                     backgroundColor: context.color,
                     opacity: hoveredIndex === index ? 1 : 0,
                     boxShadow: hoveredIndex === index ? `0 0 20px ${context.color}` : "none",
@@ -115,18 +111,15 @@ export function ResearchContextSection() {
                 />
               </div>
 
-              {/* Title */}
               <div className="lg:col-span-3">
                 <h3 className="text-2xl font-display group-hover:translate-x-2 transition-transform duration-300">{context.title}</h3>
               </div>
 
-              {/* Description */}
               <div className="lg:col-span-8">
                 <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/70 transition-colors duration-300">{context.description}</p>
               </div>
 
-              {/* Animated underline on hover */}
-              <div 
+              <div
                 className="col-span-full h-px transition-all duration-500 origin-left"
                 style={{
                   background: `linear-gradient(to right, ${context.color}, transparent)`,
@@ -137,7 +130,6 @@ export function ResearchContextSection() {
           ))}
         </div>
 
-        {/* Bottom insight with whale image */}
         <div className="mt-16 grid lg:grid-cols-2 gap-8">
           <div
             className={`p-8 lg:p-12 border border-[#eca8d6]/30 bg-[#eca8d6]/5 transition-all duration-1000 delay-500 hover:border-[#eca8d6]/50 hover:bg-[#eca8d6]/10 ${
@@ -145,20 +137,20 @@ export function ResearchContextSection() {
             }`}
           >
             <p className="text-xl lg:text-2xl font-display text-foreground/90 leading-relaxed">
-              The introduction of artificial intelligence into this ancient practice does not displace traditional knowledge, 
-              but rather extends the temporal and spatial resolution of observation.
+              Each era did not erase the one before it. Today's most advanced AI systems still
+              draw on logic, statistics, and learned representations — woven together into
+              something far greater than any single approach.
             </p>
           </div>
 
-          {/* Whale image */}
-          <div 
+          <div
             className={`relative h-64 lg:h-auto overflow-hidden rounded-lg group transition-all duration-1000 delay-600 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
             <Image
               src="/petalsphere/images/lotus-neural.png"
-              alt="Nature and technology connection"
+              alt="Layers of intelligence"
               fill
               className="object-contain object-center group-hover:scale-110 transition-transform duration-700"
             />

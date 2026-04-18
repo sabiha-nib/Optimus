@@ -12,7 +12,6 @@ export function IntroductionSection() {
       },
       { threshold: 0.1 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -27,13 +26,12 @@ export function IntroductionSection() {
   };
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className="relative py-32 lg:py-40 overflow-hidden"
       onMouseMove={handleMouseMove}
     >
-      {/* Animated gradient background that follows mouse */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none opacity-30"
         style={{
           background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(236,168,214,0.15) 0%, transparent 50%)`,
@@ -50,7 +48,7 @@ export function IntroductionSection() {
             }`}
           >
             <span className="w-12 h-px bg-foreground/20" />
-            An Inquiry
+            Defining the Field
           </span>
 
           <h2
@@ -58,9 +56,9 @@ export function IntroductionSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Where observation
+            What machines do
             <br />
-            <span className="text-muted-foreground">meets intelligence.</span>
+            <span className="text-muted-foreground">when they think.</span>
           </h2>
         </div>
 
@@ -73,29 +71,28 @@ export function IntroductionSection() {
               }`}
             >
               <p className="text-xl lg:text-2xl text-foreground/90 leading-relaxed font-display">
-                For millennia, the cultivation of plants has relied upon the accumulated wisdom of generations, 
-                passed from hand to hand through observation, intuition, and the slow accumulation of seasonal knowledge. 
-                A gardener learns to read the subtle language of leaves, the weight of soil between fingers, 
-                the shifting patterns of light across a day.
+                Artificial intelligence is the science of building machines that perform tasks
+                we usually associate with the human mind — recognising images, understanding
+                language, making decisions, and learning from experience. It is, at its heart,
+                an attempt to make computation behave intelligently.
               </p>
 
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Yet there exists a fundamental limitation in human perception. We observe in fragments, 
-                sample moments from a continuous stream of biological activity. The plant does not pause 
-                its metabolism while we sleep, does not halt its chemical signaling while we attend to other matters. 
-                Life proceeds in an unbroken continuum, indifferent to the constraints of human attention.
+                Unlike a traditional program, where every step is explicitly written by a
+                developer, an AI system improves its behaviour by processing large amounts of
+                data. It searches for patterns, builds internal representations of the world,
+                and uses those representations to make predictions and take actions in
+                situations it has never encountered before.
               </p>
 
               <p className="text-lg text-muted-foreground leading-relaxed">
-                What emerges when we extend the capacity for observation beyond these biological limits? 
-                When sensors maintain vigilance through every hour, when algorithms process data faster than 
-                neurons can fire, when patterns invisible to the eye become legible to mathematical analysis? 
-                This is not a replacement for the gardener&apos;s art, but an extension of it into territories 
-                previously inaccessible to human perception.
+                What emerges is something genuinely new in the history of technology: software
+                that is shaped as much by the data it sees as by the code it runs. This shift
+                from instruction to learning is the foundation of every modern AI breakthrough,
+                from voice assistants and recommendation engines to self-driving cars and
+                large language models that can write, reason, and converse.
               </p>
             </div>
-
-
           </div>
 
           {/* Side content - Key concept with hover effect */}
@@ -110,35 +107,35 @@ export function IntroductionSection() {
                 Central Question
               </span>
               <p className="text-2xl lg:text-3xl font-display leading-snug text-foreground/90">
-                How does artificial intelligence transform our relationship with the living systems we cultivate?
+                Can a machine that learns from data ever come to truly understand the world it
+                acts in?
               </p>
               <div className="mt-8 pt-8 border-t border-foreground/10 group-hover:border-[#eca8d6]/20 transition-colors">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  This exploration examines the intersection of computational systems and botanical science, 
-                  investigating how machine learning, sensor networks, and predictive modeling create 
-                  new possibilities for understanding and interacting with plant ecosystems.
+                  This guide examines artificial intelligence from the ground up — its
+                  definitions, its history, the algorithms that power it, the systems it now
+                  shapes, and the open questions that will define its next chapter.
                 </p>
               </div>
 
-              {/* Decorative corner glow on hover */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#eca8d6]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-full" />
             </div>
 
-            {/* Connected trees image */}
-            <div 
+            {/* Decorative image */}
+            <div
               className={`mt-6 relative h-64 overflow-hidden rounded-lg transition-all duration-1000 delay-600 group ${
                 isVisible ? "opacity-100" : "opacity-0"
               }`}
             >
               <Image
                 src="/petalsphere/images/lotus-neural.png"
-                alt="Connected botanical systems"
+                alt="An abstract neural network"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
               <p className="absolute bottom-4 left-4 text-sm text-foreground/70 font-mono">
-                Data flows like light between branches
+                Patterns connecting like neurons in thought
               </p>
             </div>
           </div>

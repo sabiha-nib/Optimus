@@ -4,28 +4,28 @@ import { Eye, BarChart3, Lightbulb } from "lucide-react";
 const comparisons = [
   {
     icon: Eye,
-    title: "Human Observation",
+    title: "Narrow AI",
     description:
-      "The human observer brings contextual understanding and intuitive pattern recognition developed through experience. We perceive the garden holistically, integrating aesthetic judgment with biological assessment.",
-    characteristics: ["Intermittent sampling", "Contextual understanding", "Intuitive recognition", "Aesthetic integration"],
+      "The AI that exists today. Each system is highly capable at one specific task — playing Go, translating Spanish, recommending songs — but cannot transfer that skill to anything outside its training. Almost every product called 'AI' falls into this category.",
+    characteristics: ["Single task focus", "Trained on a fixed domain", "Superhuman at narrow problems", "No general understanding"],
     color: "#eca8d6",
     gradient: "from-[#eca8d6]/20 to-[#eca8d6]/5",
   },
   {
     icon: BarChart3,
-    title: "Data-Driven Observation",
+    title: "General AI",
     description:
-      "Sensor networks provide continuous, quantified measurement across multiple environmental parameters simultaneously. Data streams capture fluctuations invisible to human perception.",
-    characteristics: ["Continuous monitoring", "Quantified measurement", "Multi-parameter correlation", "Historical comparison"],
+      "A still-hypothetical machine that could match a human across the full breadth of cognitive tasks — reasoning, planning, learning new skills, navigating unfamiliar problems. Whether and when it can be built remains one of the field's biggest open questions.",
+    characteristics: ["Cross-domain reasoning", "Transfer learning", "Common-sense knowledge", "Self-directed problem solving"],
     color: "#7dd3fc",
     gradient: "from-[#7dd3fc]/20 to-[#7dd3fc]/5",
   },
   {
     icon: Lightbulb,
-    title: "The Synthesis",
+    title: "Superintelligence",
     description:
-      "Neither approach alone captures the full complexity of a living system. The integration of human wisdom with computational analysis creates a new mode of understanding.",
-    characteristics: ["Complementary strengths", "Enhanced interpretation", "Accelerated learning", "Deeper understanding"],
+      "A theoretical AI whose abilities surpass human intelligence in every dimension. Long discussed by philosophers and now taken seriously by researchers, it raises questions of safety, alignment and human agency that the field is only beginning to address.",
+    characteristics: ["Beyond human ability", "Autonomous goal pursuit", "Speculative and contested", "Subject of ongoing safety research"],
     color: "#a5f3fc",
     gradient: "from-[#a5f3fc]/20 to-[#a5f3fc]/5",
   },
@@ -43,16 +43,14 @@ export function ObservationSection() {
       },
       { threshold: 0.1 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
     <section id="observation" ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
-      {/* Subtle grid background */}
       <div className="absolute inset-0 opacity-[0.02]">
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
@@ -62,7 +60,6 @@ export function ObservationSection() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Header */}
         <div className="mb-20">
           <span
             className={`inline-flex items-center gap-4 text-sm font-mono text-muted-foreground mb-8 transition-all duration-700 ${
@@ -70,7 +67,7 @@ export function ObservationSection() {
             }`}
           >
             <span className="w-12 h-px bg-foreground/20" />
-            Epistemology
+            Types of AI
           </span>
 
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
@@ -79,9 +76,9 @@ export function ObservationSection() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              Perception
+              Narrow, general,
               <br />
-              <span className="text-muted-foreground">versus analysis.</span>
+              <span className="text-muted-foreground">and beyond.</span>
             </h2>
 
             <p
@@ -89,14 +86,13 @@ export function ObservationSection() {
                 isVisible ? "opacity-100" : "opacity-0"
               }`}
             >
-              There exists a fundamental distinction between perceiving and understanding, 
-              between the immediate apprehension of sensory data and the deeper comprehension 
-              of underlying patterns and causal relationships.
+              Researchers usually distinguish three levels of artificial intelligence based on
+              breadth of ability. Understanding the difference makes it easier to read past
+              the headlines and see what today's AI really is — and is not.
             </p>
           </div>
         </div>
 
-        {/* Comparison cards with enhanced animations */}
         <div className="grid lg:grid-cols-3 gap-6">
           {comparisons.map((item, index) => (
             <div
@@ -104,7 +100,7 @@ export function ObservationSection() {
               className={`group relative p-8 lg:p-10 border transition-all duration-500 cursor-default overflow-hidden ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
-              style={{ 
+              style={{
                 transitionDelay: `${index * 100}ms`,
                 borderColor: activeCard === index ? `${item.color}60` : "rgba(var(--foreground-rgb), 0.1)",
                 backgroundColor: activeCard === index ? `${item.color}08` : "rgba(var(--foreground-rgb), 0.02)",
@@ -112,16 +108,14 @@ export function ObservationSection() {
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
             >
-              {/* Animated gradient background */}
-              <div 
+              <div
                 className={`absolute inset-0 bg-gradient-to-br ${item.gradient} transition-opacity duration-500`}
                 style={{ opacity: activeCard === index ? 1 : 0 }}
               />
 
-              {/* Floating orb */}
-              <div 
+              <div
                 className="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl transition-all duration-700"
-                style={{ 
+                style={{
                   backgroundColor: item.color,
                   opacity: activeCard === index ? 0.15 : 0,
                   transform: activeCard === index ? "scale(1.2)" : "scale(1)",
@@ -129,7 +123,6 @@ export function ObservationSection() {
               />
 
               <div className="relative z-10">
-                {/* Icon with animation */}
                 <div
                   className="w-14 h-14 flex items-center justify-center border mb-8 transition-all duration-500"
                   style={{
@@ -142,17 +135,14 @@ export function ObservationSection() {
                   <item.icon className="w-6 h-6" />
                 </div>
 
-                {/* Title */}
                 <h3 className="text-2xl font-display mb-4 group-hover:translate-x-1 transition-transform duration-300">{item.title}</h3>
 
-                {/* Description */}
                 <p className="text-muted-foreground leading-relaxed mb-8 text-sm group-hover:text-foreground/70 transition-colors duration-300">{item.description}</p>
 
-                {/* Characteristics with staggered animation */}
                 <div className="space-y-3 pt-6 border-t border-foreground/10">
                   {item.characteristics.map((char, charIndex) => (
-                    <div 
-                      key={char} 
+                    <div
+                      key={char}
                       className="flex items-center gap-3 text-sm transition-all duration-300"
                       style={{
                         transform: activeCard === index ? "translateX(8px)" : "translateX(0)",
@@ -161,7 +151,7 @@ export function ObservationSection() {
                     >
                       <span
                         className="w-2 h-2 rounded-full transition-all duration-300"
-                        style={{ 
+                        style={{
                           backgroundColor: activeCard === index ? item.color : "rgba(var(--foreground-rgb), 0.2)",
                           boxShadow: activeCard === index ? `0 0 10px ${item.color}` : "none",
                         }}

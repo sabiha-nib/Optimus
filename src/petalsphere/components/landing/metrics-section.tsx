@@ -5,22 +5,22 @@ const metrics = [
     value: 2847, 
     suffix: "L", 
     prefix: "",
-    label: "Water optimized today",
-    sublabel: "across monitored gardens",
+    label: "Parameters trained today",
+    sublabel: "across global model runs",
   },
   { 
     value: 95, 
     suffix: "%", 
     prefix: "",
-    label: "Plant health score",
-    sublabel: "real-time assessment",
+    label: "Average model accuracy",
+    sublabel: "on benchmark suites",
   },
   { 
     value: 847, 
     suffix: "", 
     prefix: "",
-    label: "AI decisions today",
-    sublabel: "automated responses",
+    label: "Inference calls per second",
+    sublabel: "from production models",
   },
 ];
 
@@ -257,9 +257,9 @@ export function MetricsSection() {
             <h2 className={`text-6xl md:text-7xl lg:text-[140px] font-display tracking-tight leading-[0.95] transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
-              Live garden
+              Intelligence at
               <br />
-              <span className="text-muted-foreground">intelligence.</span>
+              <span className="text-muted-foreground">global scale.</span>
             </h2>
           </div>
         </div>
@@ -326,11 +326,11 @@ export function MetricsSection() {
         <div className={`mt-16 pt-8 border-t border-foreground/10 flex flex-wrap items-center gap-x-12 gap-y-4 text-sm font-mono text-muted-foreground transition-all duration-1000 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
-          <span>Soil Analysis</span>
-          <span>Weather Integration</span>
-          <span>Growth Tracking</span>
-          <span>Disease Detection</span>
-          <span className="text-foreground">+8 more sensors</span>
+          <span>Vision</span>
+          <span>Language</span>
+          <span>Speech</span>
+          <span>Robotics</span>
+          <span className="text-foreground">+8 more domains</span>
         </div>
       </div>
     </section>
