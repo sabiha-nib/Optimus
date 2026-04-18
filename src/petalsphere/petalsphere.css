@@ -3,14 +3,14 @@
 /*  Original tokens were oklch; mapped to HSL for Tailwind v3 compatibility */
 /* ===================================================================== */
 .theme-petalsphere {
-  --background: 240 10% 4%;
+  --background: 0 0% 0%;
   --foreground: 60 6% 94%;
-  --card: 240 10% 6%;
+  --card: 0 0% 0%;
   --card-foreground: 60 6% 94%;
-  --popover: 240 10% 6%;
+  --popover: 0 0% 0%;
   --popover-foreground: 60 6% 94%;
   --primary: 60 6% 94%;
-  --primary-foreground: 240 10% 4%;
+  --primary-foreground: 0 0% 0%;
   --secondary: 240 8% 9%;
   --secondary-foreground: 60 6% 94%;
   --muted: 240 8% 9%;
@@ -104,7 +104,7 @@
 }
 
 .theme-petalsphere .how-it-works-bg {
-  background-color: hsl(240 10% 6%);
+  background-color: #000;
 }
 
 .theme-petalsphere .word-gradient {
