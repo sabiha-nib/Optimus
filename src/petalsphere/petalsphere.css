@@ -30,7 +30,7 @@
 }
 
 .theme-petalsphere .font-display {
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: "Instrument Sans", system-ui, sans-serif;
 }
 .theme-petalsphere .font-mono {
   font-family: "JetBrains Mono", "Courier Prime", monospace;
