@@ -157,7 +157,7 @@ export function ResearchContextSection() {
             }`}
           >
             <Image
-              src="/images/lotus-neural.png"
+              src="/petalsphere/images/lotus-neural.png"
               alt="Nature and technology connection"
               fill
               className="object-contain object-center group-hover:scale-110 transition-transform duration-700"

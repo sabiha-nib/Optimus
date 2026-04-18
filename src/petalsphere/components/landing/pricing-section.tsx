@@ -191,7 +191,7 @@ export function PricingSection() {
         
         {/* The image */}
         <img
-          src="/images/connected-trees.png"
+          src="/petalsphere/images/connected-trees.png"
           alt="Data flow visualization through connected networks"
           className="relative w-full h-auto max-h-[500px] object-cover object-center"
         />

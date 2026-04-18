@@ -131,7 +131,7 @@ export function IntroductionSection() {
               }`}
             >
               <Image
-                src="/images/lotus-neural.png"
+                src="/petalsphere/images/lotus-neural.png"
                 alt="Connected botanical systems"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
