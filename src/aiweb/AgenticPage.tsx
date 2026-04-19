@@ -647,7 +647,7 @@ export default function AgenticPage() {
             >
               <div>
                 <div className="text-[11px] tracking-widest text-black/40 uppercase mb-3">Route · 02</div>
-                <h3 className="text-3xl font-light tracking-tight">PetalSphere</h3>
+                <h3 className="text-3xl font-light tracking-tight">Deep Dive</h3>
                 <p className="mt-3 text-sm text-black/50 leading-relaxed max-w-sm">
                   The slow, observational deep dive — chapters, ecology, ethics and the long view of intelligence.
                 </p>
