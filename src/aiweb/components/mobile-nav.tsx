@@ -24,6 +24,7 @@ const NAV_STYLE = {
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
 
   const close = () => setOpen(false)
 
@@ -55,7 +56,7 @@ export function MobileNav() {
             {/* Cross-route links — always visible on desktop */}
             <div className="hidden md:flex items-center gap-3 mr-2">
               {ROUTE_LINKS.map(r => {
-                const active = useLocation().pathname === r.to
+                const active = pathname === r.to
                 return (
                   <Link
                     key={r.to}
