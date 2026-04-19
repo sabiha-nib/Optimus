@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link, useLocation } from "react-router-dom"
 
 const NAV_LINKS = [
   { label: "Overview",     href: "#platform" },
@@ -6,6 +7,12 @@ const NAV_LINKS = [
   { label: "How it works", href: "#workflow" },
   { label: "Applications", href: "#integrations" },
   { label: "Read more",    href: "#pricing" },
+]
+
+const ROUTE_LINKS: { label: string; to: string }[] = [
+  { label: "OVERVIEW",  to: "/" },
+  { label: "DEEP DIVE", to: "/petalsphere" },
+  { label: "ATLAS",     to: "/atlas" },
 ]
 
 const NAV_STYLE = {
