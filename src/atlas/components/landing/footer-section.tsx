@@ -1,4 +1,3 @@
-"use client";
 
 import { ArrowUpRight } from "lucide-react";
 import { AnimatedWave } from "./animated-wave";
