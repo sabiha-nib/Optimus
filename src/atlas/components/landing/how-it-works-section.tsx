@@ -193,38 +193,28 @@ export function HowItWorksSection() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes progress {
           from { width: 0%; }
           to { width: 100%; }
         }
-        
         .code-line-reveal {
           opacity: 0;
           transform: translateX(-8px);
           animation: lineReveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        
         @keyframes lineReveal {
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
+          to { opacity: 1; transform: translateX(0); }
         }
-        
         .code-char-reveal {
           opacity: 0;
           filter: blur(8px);
           animation: charReveal 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        
         @keyframes charReveal {
-          to {
-            opacity: 1;
-            filter: blur(0);
-          }
+          to { opacity: 1; filter: blur(0); }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }
