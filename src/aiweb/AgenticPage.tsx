@@ -627,6 +627,57 @@ export default function AgenticPage() {
       </section>
 
 
+      {/* ── EXPLORE OPTIMUS — links to Deep Dive & Atlas ───────────────────── */}
+      <section className="py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-12">
+            <Tag>EXPLORE OPTIMUS</Tag>
+            <h2 className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]" style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}>
+              Two more ways<br />to keep going.
+            </h2>
+            <p className="mt-5 text-sm text-black/50 max-w-md leading-relaxed">
+              The overview ends here. The deep dive and the atlas pick up where it left off — one through observation, the other through reading.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <Link
+              to="/petalsphere"
+              className="group relative rounded-2xl border border-black/[0.07] bg-white p-8 min-h-[220px] flex flex-col justify-between overflow-hidden hover:border-black/20 hover:bg-[#fafaf8] transition-all duration-300"
+            >
+              <div>
+                <div className="text-[11px] tracking-widest text-black/40 uppercase mb-3">Route · 02</div>
+                <h3 className="text-3xl font-light tracking-tight">PetalSphere</h3>
+                <p className="mt-3 text-sm text-black/50 leading-relaxed max-w-sm">
+                  The slow, observational deep dive — chapters, ecology, ethics and the long view of intelligence.
+                </p>
+              </div>
+              <div className="flex items-center justify-between mt-8">
+                <span className="text-[11px] tracking-[0.3em] text-black/50">DEEP DIVE</span>
+                <span className="text-2xl text-black/60 group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </Link>
+
+            <Link
+              to="/atlas"
+              className="group relative rounded-2xl border border-black/[0.07] bg-white p-8 min-h-[220px] flex flex-col justify-between overflow-hidden hover:border-black/20 hover:bg-[#fafaf8] transition-all duration-300"
+            >
+              <div>
+                <div className="text-[11px] tracking-widest text-black/40 uppercase mb-3">Route · 03</div>
+                <h3 className="text-3xl font-light tracking-tight">Atlas</h3>
+                <p className="mt-3 text-sm text-black/50 leading-relaxed max-w-sm">
+                  Research articles, short courses and a plain-language glossary — a quiet reading room for everyone next to a model.
+                </p>
+              </div>
+              <div className="flex items-center justify-between mt-8">
+                <span className="text-[11px] tracking-[0.3em] text-black/50">RESEARCH & EDUCATION</span>
+                <span className="text-2xl text-black/60 group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── FOOTER ────────────────────────────────────────────────────────── */}
       <footer className="py-10 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">

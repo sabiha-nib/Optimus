@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import PetalSpherePage from "./petalsphere/PetalSpherePage";
-import HybridPage from "./hybrid/HybridPage";
+import AtlasPage from "./atlas/AtlasPage";
 
 const queryClient = new QueryClient();
 
@@ -19,7 +19,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/petalsphere" element={<PetalSpherePage />} />
-          <Route path="/hybrid" element={<HybridPage />} />
+          <Route path="/atlas" element={<AtlasPage />} />
+          {/* Legacy redirect */}
+          <Route path="/hybrid" element={<AtlasPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
