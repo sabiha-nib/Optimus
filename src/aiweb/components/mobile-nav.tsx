@@ -36,7 +36,7 @@ export function MobileNav() {
           className="flex items-center justify-between px-5 py-3 rounded-2xl border border-black/[0.06]"
           style={NAV_STYLE}
         >
-          <span className="font-pixel text-xs tracking-[0.25em] text-black/70">WHAT IS AI?</span>
+          <Link to="/" className="font-pixel text-xs tracking-[0.25em] text-black/80 hover:text-black transition-colors">✦ OPTIMUS</Link>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-7" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
@@ -51,10 +51,26 @@ export function MobileNav() {
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
-            <button className="text-[11px] px-4 py-2 rounded-xl border border-black/10 text-black/60 hover:text-black hover:border-black/20 hover:bg-black/[0.03] transition-all duration-200 tracking-wide hidden md:block" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
+          <div className="flex items-center gap-3">
+            {/* Cross-route links — always visible on desktop */}
+            <div className="hidden md:flex items-center gap-3 mr-2">
+              {ROUTE_LINKS.map(r => {
+                const active = useLocation().pathname === r.to
+                return (
+                  <Link
+                    key={r.to}
+                    to={r.to}
+                    className={`text-[10px] tracking-[0.3em] transition-colors ${active ? "text-black" : "text-black/50 hover:text-black"}`}
+                    style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+                  >
+                    {r.label}
+                  </Link>
+                )
+              })}
+            </div>
+            <Link to="/atlas" className="text-[11px] px-4 py-2 rounded-xl border border-black/10 text-black/70 hover:text-black hover:border-black/20 hover:bg-black/[0.03] transition-all duration-200 tracking-wide hidden md:block" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
               START READING
-            </button>
+            </Link>
 
             {/* Burger — mobile only */}
             <button
@@ -108,10 +124,21 @@ export function MobileNav() {
                 {l.label}
               </a>
             ))}
-            <div className="mt-1 px-2 pb-1">
-              <button className="w-full text-[11px] px-4 py-2.5 rounded-xl border border-black/10 text-black/60 hover:text-black hover:border-black/20 hover:bg-black/[0.03] transition-all duration-200 tracking-wide" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
+            <div className="mt-1 px-2 pb-1 border-t border-black/[0.06] pt-2 flex flex-col gap-1">
+              {ROUTE_LINKS.map(r => (
+                <Link
+                  key={r.to}
+                  to={r.to}
+                  onClick={close}
+                  className="px-4 py-2.5 text-[11px] tracking-[0.3em] text-black/70 hover:text-black hover:bg-black/[0.03] rounded-xl transition-colors"
+                  style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
+                >
+                  {r.label}
+                </Link>
+              ))}
+              <Link to="/atlas" onClick={close} className="mt-1 w-full text-center text-[11px] px-4 py-2.5 rounded-xl border border-black/10 text-black/70 hover:text-black hover:border-black/20 hover:bg-black/[0.03] transition-all duration-200 tracking-wide" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
                 START READING
-              </button>
+              </Link>
             </div>
           </div>
         </div>
