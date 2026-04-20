@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { ScrollVideoHero } from "./scroll-video-hero";
 
 const video1 = "/atlas/videos/parallax-1.mp4";
 const video2 = "/atlas/videos/parallax-2.mp4";
-const video3 = "/atlas/videos/parallax-3.mp4";
 
 /* ---------- Parallax video block ---------- */
 function ParallaxVideo({
