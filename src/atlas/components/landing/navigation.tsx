@@ -3,10 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
-const sectionLinks = [
-  { name: "Research", href: "#research" },
-  { name: "Pricing", href: "#pricing" },
-];
+const sectionLinks: { name: string; href: string }[] = [];
 
 const routeLinks = [
   { name: "Overview", to: "/" },
@@ -95,15 +92,9 @@ export function Navigation() {
                 );
               })}
             </div>
-            <Button
-              size="sm"
-              asChild
-              className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 whitespace-nowrap ${
-                isScrolled ? "px-3 h-8 text-xs" : "px-5"
-              }`}
-            >
-              <a href="#research">Read</a>
-            </Button>
+            <span className="hidden lg:inline-block font-mono text-[10px] tracking-[0.25em] uppercase text-foreground/50 ml-2">
+              Issue 04
+            </span>
           </div>
 
           {/* Mobile Menu Button */}
