@@ -2,6 +2,7 @@ import "./atlas.css";
 import { Navigation } from "./components/landing/navigation";
 import { HeroSection } from "./components/landing/hero-section";
 import { FeaturesSection } from "./components/landing/features-section";
+import { AiResearchSection } from "./components/landing/ai-research-section";
 import { HowItWorksSection } from "./components/landing/how-it-works-section";
 import { InfrastructureSection } from "./components/landing/infrastructure-section";
 import { MetricsSection } from "./components/landing/metrics-section";
@@ -20,6 +21,7 @@ export default function AtlasPage() {
         <Navigation />
         <HeroSection />
         <FeaturesSection />
+        <AiResearchSection />
         <HowItWorksSection />
         <InfrastructureSection />
         <MetricsSection />

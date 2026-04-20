@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const sectionLinks = [
-  { name: "Features", href: "#features" },
-  { name: "How it works", href: "#how-it-works" },
-  { name: "Developers", href: "#developers" },
+  { name: "Research", href: "#research" },
   { name: "Pricing", href: "#pricing" },
 ];
 
@@ -64,12 +62,12 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Section Nav */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-6">
             {sectionLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm text-foreground/70 hover:text-foreground transition-colors duration-300 relative group"
+                className="text-sm text-foreground/70 hover:text-foreground transition-colors duration-300 relative group whitespace-nowrap"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full" />
@@ -78,15 +76,15 @@ export function Navigation() {
           </div>
 
           {/* Desktop Route Switcher + CTA */}
-          <div className="hidden md:flex items-center gap-5">
-            <div className="flex items-center gap-4 mr-2 font-mono text-[10px] tracking-[0.3em] uppercase">
+          <div className="hidden md:flex items-center gap-3 lg:gap-4">
+            <div className="flex items-center gap-3 lg:gap-4 mr-1 font-mono text-[10px] tracking-[0.2em] uppercase">
               {routeLinks.map((r) => {
                 const active = pathname === r.to;
                 return (
                   <Link
                     key={r.to}
                     to={r.to}
-                    className={`transition-colors ${
+                    className={`transition-colors whitespace-nowrap ${
                       active
                         ? "text-foreground"
                         : "text-foreground/50 hover:text-foreground"
@@ -100,11 +98,11 @@ export function Navigation() {
             <Button
               size="sm"
               asChild
-              className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${
-                isScrolled ? "px-4 h-8 text-xs" : "px-6"
+              className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 whitespace-nowrap ${
+                isScrolled ? "px-3 h-8 text-xs" : "px-5"
               }`}
             >
-              <a href="#features">Start reading</a>
+              <a href="#research">Read</a>
             </Button>
           </div>
 
