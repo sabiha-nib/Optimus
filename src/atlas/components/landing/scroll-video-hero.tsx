@@ -133,17 +133,11 @@ export function ScrollVideoHero() {
     }
   };
 
-  // Section height = (1 + duration * scrollPerSecond) viewports.
-  // Default duration of 8s while metadata loads, swapped once known.
-  // 1.0 viewport per second of video → a 12s clip needs 12 screens of scroll.
-  const scrollPerSecond = 1.0;
-  const sectionHeightVh = Math.round((1 + (duration || 8) * scrollPerSecond) * 100);
-
   return (
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: `${sectionHeightVh}vh` }}
+      style={{ height: "420vh" }}
       aria-label="Scroll-driven introduction"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-foreground">
