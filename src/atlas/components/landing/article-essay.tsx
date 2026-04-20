@@ -176,8 +176,12 @@ export function ArticleEssay() {
     <article className="relative">
       <ReadingProgress />
 
+      {/* Scroll-scrubbed hero film (Fig. 01) */}
+      <ScrollVideoHero />
+
       {/* Masthead */}
-      <header className="max-w-[1200px] mx-auto px-6 lg:px-12 pt-40 lg:pt-52 pb-16">
+      <header className="max-w-[1200px] mx-auto px-6 lg:px-12 pt-32 lg:pt-40 pb-16">
+
         <div className="flex items-center gap-4 mb-12 font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/50">
           <span>Optimus / Atlas</span>
           <span className="h-px flex-1 bg-foreground/15" />
@@ -214,14 +218,15 @@ export function ArticleEssay() {
         </div>
       </header>
 
-      {/* Opening figure — full bleed */}
+      {/* Inline figure — full bleed */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <ParallaxVideo
           src={video1}
-          figure="Fig. 01"
+          figure="Fig. 02"
           caption="A model in motion — gradients descending toward an unseen minimum."
         />
       </div>
+
 
       {/* Chapter I */}
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
@@ -274,11 +279,12 @@ export function ArticleEssay() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <ParallaxVideo
           src={video2}
-          figure="Fig. 02"
+          figure="Fig. 03"
           caption="Attention, visualised — every token weighted against every other."
           align="right"
         />
       </div>
+
 
       {/* Chapter II */}
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
@@ -352,15 +358,7 @@ export function ArticleEssay() {
         </P>
       </div>
 
-      {/* Closing figure — offset left */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <ParallaxVideo
-          src={video3}
-          figure="Fig. 03"
-          caption="Emergent behaviour — capabilities appearing without being asked for."
-          align="left"
-        />
-      </div>
+
 
       {/* Chapter IV */}
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
