@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ScrollVideoHero } from "./scroll-video-hero";
+import { StackingResearchCards } from "./stacking-research-cards";
 
 /* ---------- Parallax video ---------- */
 function ParallaxVideo({ src, caption, figure }: { src: string; caption: string; figure: string }) {
