@@ -11,7 +11,7 @@ const NAV_LINKS = [
 
 const ROUTE_LINKS: { label: string; to: string }[] = [
   { label: "OVERVIEW",  to: "/" },
-  { label: "DEEP DIVE", to: "/petalsphere" },
+  { label: "DEEP DIVE", to: "/deep-dive" },
   { label: "ATLAS",     to: "/atlas" },
 ]
 
