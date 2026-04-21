@@ -74,22 +74,6 @@ function MarginNote({ label, children }: { label: string; children: React.ReactN
   );
 }
 
-/* ---------- Feature card ---------- */
-function FeatureCard({ icon, title, desc, stat, unit }: { icon: React.ReactNode; title: string; desc: string; stat: string; unit: string }) {
-  return (
-    <div className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-8 transition-all hover:border-white/10 hover:bg-white/[0.04]">
-      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-white/5">
-        {icon}
-      </div>
-      <h3 className="mb-2 text-lg font-semibold text-white">{title}</h3>
-      <p className="text-sm leading-relaxed text-white/40">{desc}</p>
-      <div className="mt-6 flex items-baseline gap-2">
-        <span className="text-2xl font-semibold text-white">{stat}</span>
-        <span className="text-sm text-white/40">{unit}</span>
-      </div>
-    </div>
-  );
-}
 
 /* ---------- Reading progress ---------- */
 function ReadingProgress() {
