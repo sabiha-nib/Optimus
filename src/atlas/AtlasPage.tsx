@@ -7,7 +7,7 @@ export default function AtlasPage() {
   return (
     <div className="theme-atlas">
       <OptimusNav variant="light" />
-      <main className="relative min-h-screen overflow-x-hidden">
+      <main className="relative min-h-screen">
         <ArticleEssay />
         <FooterSection />
       </main>
