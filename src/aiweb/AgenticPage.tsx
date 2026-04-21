@@ -6,7 +6,7 @@ import { PixelIcon } from "@/aiweb/components/pixel-icon"
 import { LiveAgentFeed, LiveAgentCounter } from "@/aiweb/components/live-agent-feed"
 import { RevealText } from "@/aiweb/components/reveal-text"
 import { StackingAgentCards } from "@/aiweb/components/stacking-agent-cards"
-import { MobileNav } from "@/aiweb/components/mobile-nav"
+import { OptimusNav } from "@/components/OptimusNav"
 import { DevExSection } from "@/aiweb/components/devex-section"
 
 // ─── Intersection Observer hook ──────────────────────────────────────────────
@@ -104,7 +104,7 @@ export default function AgenticPage() {
       <IntroAnimation onDone={handleIntroDone} />
 
       {/* ── STICKY NAV ────────────────────────────────────────────────────── */}
-      <MobileNav />
+      <OptimusNav variant="dark" />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative h-screen overflow-hidden">

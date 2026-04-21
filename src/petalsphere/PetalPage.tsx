@@ -1,4 +1,3 @@
-import { Navigation } from "@/petalsphere/components/landing/navigation";
 import { HeroSection } from "@/petalsphere/components/landing/hero-section";
 import { IntroductionSection } from "@/petalsphere/components/landing/introduction-section";
 import { ResearchContextSection } from "@/petalsphere/components/landing/research-context-section";
@@ -20,7 +19,6 @@ import { FooterSection } from "@/petalsphere/components/landing/footer-section";
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <Navigation />
       <HeroSection />
       {/* Scientific Introduction */}
       <IntroductionSection />
