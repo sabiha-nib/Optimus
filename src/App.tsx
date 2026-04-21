@@ -18,7 +18,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/petalsphere" element={<PetalSpherePage />} />
+          <Route path="/deep-dive" element={<PetalSpherePage />} />
           <Route path="/atlas" element={<AtlasPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

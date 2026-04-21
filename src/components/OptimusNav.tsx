@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const links = [
   { to: "/", label: "OVERVIEW", key: "overview" },
-  { to: "/petalsphere", label: "DEEP DIVE", key: "deep-dive" },
+  { to: "/deep-dive", label: "DEEP DIVE", key: "deep-dive" },
   { to: "/atlas", label: "ATLAS", key: "atlas" },
 ];
 
