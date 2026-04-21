@@ -538,7 +538,7 @@ export default function AgenticPage() {
               the ethics and the future of artificial intelligence in long form.
             </p>
             <Link
-              to="/petalsphere"
+              to="/deep-dive"
               className="mt-10 inline-flex items-center gap-3 px-7 py-3.5 rounded-xl bg-[#111] text-white text-sm tracking-widest hover:bg-[#333] transition-colors"
             >
               EXPLORE THE DEEP DIVE
@@ -642,7 +642,7 @@ export default function AgenticPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Link
-              to="/petalsphere"
+              to="/deep-dive"
               className="group relative rounded-2xl border border-black/[0.07] bg-white p-8 min-h-[220px] flex flex-col justify-between overflow-hidden hover:border-black/20 hover:bg-[#fafaf8] transition-all duration-300"
             >
               <div>

@@ -7,7 +7,7 @@ const sectionLinks: { name: string; href: string }[] = [];
 
 const routeLinks = [
   { name: "Overview", to: "/" },
-  { name: "Deep Dive", to: "/petalsphere" },
+  { name: "Deep Dive", to: "/deep-dive" },
   { name: "Atlas", to: "/atlas" },
 ];
 
