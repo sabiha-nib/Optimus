@@ -2,11 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 const videoSrc = "/atlas/videos/parallax-3.mp4";
 
-/**
- * Apple-style scroll-scrubbed video hero.
- * Container is 500vh. Video is sticky, currentTime driven by scroll progress.
- * Text overlays fade in/out at progress thresholds.
- */
 export function ScrollVideoHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -79,8 +74,13 @@ export function ScrollVideoHero() {
   };
 
   return (
-    <div ref={containerRef} className="relative" style={{ height: "500vh" }}>
-      <div className="sticky top-0 h-screen w-full overflow-hidden" style={{ background: "hsl(0 0% 2%)" }}>
+    <div
+      ref={containerRef}
+      className="relative w-full"
+      style={{ height: "500vh" }}
+    >
+      {/* Sticky viewport — pinned to screen while scrolling through the 500vh container */}
+      <div className="sticky top-0 left-0 w-full h-screen overflow-hidden" style={{ background: "hsl(0 0% 2%)" }}>
         <video
           ref={videoRef} src={videoSrc} muted playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
@@ -89,7 +89,7 @@ export function ScrollVideoHero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25 pointer-events-none" />
 
-        {/* Overlays */}
+        {/* Text overlays */}
         {overlays.map((c, i) => {
           const active = progress >= c.from && progress <= c.to;
           const mid = (c.from + c.to) / 2;
@@ -126,6 +126,7 @@ export function ScrollVideoHero() {
           <span className="animate-bounce">↓</span>
         </div>
 
+        {/* Loading state */}
         {!ready && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
             <div className="text-xl font-semibold tracking-tight text-white/80">OPTIMUS ATLAS</div>
