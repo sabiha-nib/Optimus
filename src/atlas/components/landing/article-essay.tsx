@@ -1,38 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ScrollVideoHero } from "./scroll-video-hero";
+import { ScrollVideoSection } from "./scroll-video-section";
 import { StackingResearchCards } from "./stacking-research-cards";
-
-/* ---------- Parallax video ---------- */
-function ParallaxVideo({ src, caption, figure }: { src: string; caption: string; figure: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [offset, setOffset] = useState(0);
-  useEffect(() => {
-    videoRef.current?.play().catch(() => {});
-    const onScroll = () => {
-      if (!ref.current) return;
-      const rect = ref.current.getBoundingClientRect();
-      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-      setOffset(Math.max(-120, Math.min(120, -center * 0.18)));
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  return (
-    <figure ref={ref} className="my-20 lg:my-32">
-      <div className="relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] aspect-[16/9]">
-        <video ref={videoRef} src={src} autoPlay muted loop playsInline preload="metadata"
-          className="absolute inset-0 w-full h-[120%] object-cover will-change-transform"
-          style={{ transform: `translate3d(0, ${offset}px, 0)` }} />
-      </div>
-      <figcaption className="mt-4 flex items-baseline gap-4 text-sm text-white/40">
-        <span className="font-mono text-[10px] tracking-[0.2em] uppercase">{figure}</span>
-        <span>{caption}</span>
-      </figcaption>
-    </figure>
-  );
-}
 
 /* ---------- Typography components ---------- */
 function Lead({ children }: { children: React.ReactNode }) {
@@ -122,10 +91,17 @@ export function ArticleEssay() {
         </div>
       </header>
 
-      {/* Parallax figure */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <ParallaxVideo src="/atlas/videos/parallax-1.mp4" figure="Fig. 02" caption="A model in motion — gradients descending toward an unseen minimum." />
-      </div>
+      {/* Scroll-scrub video — Fig. 02 */}
+      <ScrollVideoSection
+        src="/atlas/videos/parallax-1.mp4"
+        figure="Fig. 02"
+        scrollHeight={350}
+        overlays={[
+          { from: 0.0, to: 0.3, position: "bl", text: "Gradients descending.", sub: "A model in motion toward an unseen minimum." },
+          { from: 0.4, to: 0.7, position: "br", text: "Loss is the distance between prediction and truth.", sub: "Each step narrows the gap." },
+          { from: 0.75, to: 0.98, position: "bl", text: "Convergence is not guaranteed.", sub: "But patience is rewarded." },
+        ]}
+      />
 
       {/* Chapter I */}
       <div className="max-w-5xl mx-auto px-6 md:px-12">
@@ -153,10 +129,17 @@ export function ArticleEssay() {
         </PullQuote>
       </div>
 
-      {/* Parallax figure */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <ParallaxVideo src="/atlas/videos/parallax-2.mp4" figure="Fig. 03" caption="Attention, visualised — every token weighted against every other." />
-      </div>
+      {/* Scroll-scrub video — Fig. 03 */}
+      <ScrollVideoSection
+        src="/atlas/videos/parallax-2.mp4"
+        figure="Fig. 03"
+        scrollHeight={350}
+        overlays={[
+          { from: 0.0, to: 0.3, position: "br", text: "Attention is all you need.", sub: "Vaswani et al., 2017" },
+          { from: 0.35, to: 0.65, position: "bl", text: "Every token speaks to every other.", sub: "Self-attention maps meaning across distance." },
+          { from: 0.7, to: 0.98, position: "tr", text: "Context is not a window. It is a web.", sub: "The transformer rewired sequence modelling." },
+        ]}
+      />
 
       {/* Chapter II */}
       <div className="max-w-5xl mx-auto px-6 md:px-12">
