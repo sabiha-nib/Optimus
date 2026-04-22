@@ -93,7 +93,7 @@ export function ArticleEssay() {
 
       {/* Scroll-scrub video — Fig. 02 */}
       <ScrollVideoSection
-        src="/atlas/videos/parallax-1.mp4"
+        src="/atlas/videos/optimized/parallax-1-scrub.mp4"
         figure="Fig. 02"
         scrollHeight={350}
         overlays={[
@@ -131,7 +131,7 @@ export function ArticleEssay() {
 
       {/* Scroll-scrub video — Fig. 03 */}
       <ScrollVideoSection
-        src="/atlas/videos/parallax-2.mp4"
+        src="/atlas/videos/optimized/parallax-2-scrub.mp4"
         figure="Fig. 03"
         scrollHeight={350}
         overlays={[
