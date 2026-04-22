@@ -91,10 +91,17 @@ export function ArticleEssay() {
         </div>
       </header>
 
-      {/* Parallax figure */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <ParallaxVideo src="/atlas/videos/parallax-1.mp4" figure="Fig. 02" caption="A model in motion — gradients descending toward an unseen minimum." />
-      </div>
+      {/* Scroll-scrub video — Fig. 02 */}
+      <ScrollVideoSection
+        src="/atlas/videos/parallax-1.mp4"
+        figure="Fig. 02"
+        scrollHeight={350}
+        overlays={[
+          { from: 0.0, to: 0.3, position: "bl", text: "Gradients descending.", sub: "A model in motion toward an unseen minimum." },
+          { from: 0.4, to: 0.7, position: "br", text: "Loss is the distance between prediction and truth.", sub: "Each step narrows the gap." },
+          { from: 0.75, to: 0.98, position: "bl", text: "Convergence is not guaranteed.", sub: "But patience is rewarded." },
+        ]}
+      />
 
       {/* Chapter I */}
       <div className="max-w-5xl mx-auto px-6 md:px-12">
@@ -122,10 +129,17 @@ export function ArticleEssay() {
         </PullQuote>
       </div>
 
-      {/* Parallax figure */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <ParallaxVideo src="/atlas/videos/parallax-2.mp4" figure="Fig. 03" caption="Attention, visualised — every token weighted against every other." />
-      </div>
+      {/* Scroll-scrub video — Fig. 03 */}
+      <ScrollVideoSection
+        src="/atlas/videos/parallax-2.mp4"
+        figure="Fig. 03"
+        scrollHeight={350}
+        overlays={[
+          { from: 0.0, to: 0.3, position: "br", text: "Attention is all you need.", sub: "Vaswani et al., 2017" },
+          { from: 0.35, to: 0.65, position: "bl", text: "Every token speaks to every other.", sub: "Self-attention maps meaning across distance." },
+          { from: 0.7, to: 0.98, position: "tr", text: "Context is not a window. It is a web.", sub: "The transformer rewired sequence modelling." },
+        ]}
+      />
 
       {/* Chapter II */}
       <div className="max-w-5xl mx-auto px-6 md:px-12">
