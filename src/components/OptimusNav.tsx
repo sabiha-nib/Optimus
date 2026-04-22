@@ -1,58 +1,133 @@
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
-const links = [
-  { to: "/", label: "OVERVIEW", key: "overview" },
-  { to: "/deep-dive", label: "DEEP DIVE", key: "deep-dive" },
-  { to: "/atlas", label: "ATLAS", key: "atlas" },
+const routeLinks = [
+  { name: "Overview", to: "/" },
+  { name: "Deep Dive", to: "/deep-dive" },
+  { name: "Atlas", to: "/atlas" },
 ];
 
 interface Props {
-  /** Visual variant: 'light' for dark backgrounds, 'dark' for light backgrounds. */
   variant?: "light" | "dark";
 }
 
 export function OptimusNav({ variant = "light" }: Props) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { pathname } = useLocation();
-
   const isLight = variant === "light";
-  const wrap = isLight
-    ? "bg-black/40 border-white/10 text-white/80"
-    : "bg-white/60 border-black/10 text-black/70";
-  const brand = isLight ? "text-white" : "text-black";
-  const linkBase = "transition-colors hover:opacity-100";
-  const inactive = isLight ? "opacity-60 hover:text-white" : "opacity-60 hover:text-black";
-  const active = isLight ? "opacity-100 text-white" : "opacity-100 text-black";
-  const accent = isLight ? "text-[#eca8d6]" : "text-pink-600";
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  /* --- Color tokens per state --- */
+  const textBase = isScrolled
+    ? "text-foreground/70 hover:text-foreground"
+    : isLight
+    ? "text-white/60 hover:text-white"
+    : "text-black/60 hover:text-black";
+
+  const textActive = isScrolled
+    ? "text-foreground"
+    : isLight
+    ? "text-white"
+    : "text-black";
+
+  const brandColor = isScrolled
+    ? "text-foreground"
+    : isLight
+    ? "text-white"
+    : "text-black";
+
+  const mobileText = isScrolled || isMobileMenuOpen
+    ? "text-foreground"
+    : isLight
+    ? "text-white"
+    : "text-black";
 
   return (
-    <nav
-      className={`fixed top-0 inset-x-0 z-[60] backdrop-blur-md border-b ${wrap}`}
+    <header
+      className={`fixed z-[60] transition-all duration-500 ${
+        isScrolled ? "top-4 left-4 right-4" : "top-0 left-0 right-0"
+      }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 h-12 flex items-center justify-between">
-        <Link
-          to="/"
-          className={`font-mono text-[11px] tracking-[0.35em] ${brand}`}
-          style={{ fontFamily: "'Instrument Sans', system-ui, sans-serif" }}
+      <nav
+        className={`mx-auto transition-all duration-500 ${
+          isScrolled || isMobileMenuOpen
+            ? "bg-background/60 backdrop-blur-2xl border border-foreground/10 rounded-2xl shadow-lg max-w-[1200px]"
+            : "bg-transparent max-w-[1400px]"
+        }`}
+      >
+        <div
+          className={`flex items-center justify-between transition-all duration-500 px-6 lg:px-8 ${
+            isScrolled ? "h-12" : "h-16"
+          }`}
         >
-          ✦ OPTIMUS
-        </Link>
-        <div className="flex items-center gap-5 md:gap-7 font-mono text-[10px] tracking-[0.3em]">
-          {links.map((l) => {
-            const isActive = pathname === l.to;
-            return (
+          {/* Brand */}
+          <Link to="/" className="flex items-center gap-2">
+            <span
+              className={`font-mono text-[11px] tracking-[0.35em] transition-colors duration-500 ${brandColor}`}
+              style={{ fontFamily: "'Instrument Sans', system-ui, sans-serif" }}
+            >
+              ✦ OPTIMUS
+            </span>
+          </Link>
+
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-5 lg:gap-7 font-mono text-[10px] tracking-[0.3em] uppercase">
+            {routeLinks.map((r) => {
+              const active = pathname === r.to;
+              return (
+                <Link
+                  key={r.to}
+                  to={r.to}
+                  className={`transition-colors duration-300 ${active ? textActive : textBase}`}
+                >
+                  {r.name}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={`md:hidden p-2 transition-colors duration-500 ${mobileText}`}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile overlay */}
+      <div
+        className={`md:hidden fixed inset-0 bg-background z-40 transition-all duration-500 ${
+          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="flex flex-col h-full px-8 pt-28 pb-8">
+          <div className="flex-1 flex flex-col justify-center gap-6">
+            {routeLinks.map((r, i) => (
               <Link
-                key={l.key}
-                to={l.to}
-                className={`${linkBase} ${isActive ? active : inactive} ${
-                  isActive ? accent : ""
-                }`}
+                key={r.to}
+                to={r.to}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`text-5xl font-display transition-all duration-500 ${
+                  pathname === r.to ? "text-foreground" : "text-foreground/60 hover:text-foreground"
+                } ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                style={{ transitionDelay: isMobileMenuOpen ? `${i * 75}ms` : "0ms" }}
               >
-                {l.label}
+                {r.name}
               </Link>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

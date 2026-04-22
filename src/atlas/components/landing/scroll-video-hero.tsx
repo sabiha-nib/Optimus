@@ -1,21 +1,41 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 const videoSrc = "/atlas/videos/parallax-3.mp4";
 
 export function ScrollVideoHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const progressRef = useRef(0);
   const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState(0);
   const [ready, setReady] = useState(false);
+  const durationRef = useRef(0);
 
+  /* Preload the video fully so scrubbing never freezes */
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    const onMeta = () => { setDuration(v.duration || 0); setReady(true); };
-    if (v.readyState >= 1 && v.duration) onMeta();
-    else v.addEventListener("loadedmetadata", onMeta);
-    return () => v.removeEventListener("loadedmetadata", onMeta);
+    const onCanPlay = () => {
+      durationRef.current = v.duration || 0;
+      setReady(true);
+    };
+    if (v.readyState >= 3 && v.duration) onCanPlay();
+    else v.addEventListener("canplaythrough", onCanPlay);
+    return () => v.removeEventListener("canplaythrough", onCanPlay);
+  }, []);
+
+  /* Draw current frame to canvas for smoother scrubbing */
+  const drawFrame = useCallback(() => {
+    const v = videoRef.current;
+    const c = canvasRef.current;
+    if (!v || !c || v.readyState < 2) return;
+    const ctx = c.getContext("2d");
+    if (!ctx) return;
+    if (c.width !== v.videoWidth || c.height !== v.videoHeight) {
+      c.width = v.videoWidth;
+      c.height = v.videoHeight;
+    }
+    ctx.drawImage(v, 0, 0);
   }, []);
 
   useEffect(() => {
@@ -23,25 +43,46 @@ export function ScrollVideoHero() {
     const v = videoRef.current;
     if (!container || !v) return;
     let raf = 0;
+    let seeking = false;
+
+    const onSeeked = () => {
+      seeking = false;
+      drawFrame();
+    };
+    v.addEventListener("seeked", onSeeked);
+
     const update = () => {
       const rect = container.getBoundingClientRect();
       const total = container.offsetHeight - window.innerHeight;
       const scrolled = Math.min(Math.max(-rect.top, 0), total);
       const p = total > 0 ? scrolled / total : 0;
+      progressRef.current = p;
       setProgress(p);
-      if (duration > 0) {
-        const t = p * duration;
-        if (Math.abs(v.currentTime - t) > 0.03) {
-          try { v.currentTime = t; } catch {}
+
+      const dur = durationRef.current;
+      if (dur > 0 && !seeking) {
+        const t = p * dur;
+        if (Math.abs(v.currentTime - t) > 0.05) {
+          seeking = true;
+          v.currentTime = t;
         }
       }
     };
-    const onScroll = () => { if (raf) return; raf = requestAnimationFrame(() => { update(); raf = 0; }); };
+
+    const onScroll = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => { update(); raf = 0; });
+    };
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
-    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); if (raf) cancelAnimationFrame(raf); };
-  }, [duration]);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      v.removeEventListener("seeked", onSeeked);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [drawFrame]);
 
   const overlays: Array<{
     from: number; to: number;
@@ -79,12 +120,23 @@ export function ScrollVideoHero() {
       className="relative w-full"
       style={{ height: "500vh" }}
     >
-      {/* Sticky viewport — pinned to screen while scrolling through the 500vh container */}
       <div className="sticky top-0 left-0 w-full h-screen overflow-hidden" style={{ background: "hsl(0 0% 2%)" }}>
+        {/* Hidden video element for decoding */}
         <video
-          ref={videoRef} src={videoSrc} muted playsInline preload="auto"
+          ref={videoRef}
+          src={videoSrc}
+          muted
+          playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: ready ? 1 : 0 }}
         />
+        {/* Canvas for smooth frame display */}
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full object-cover hidden"
+        />
+
         {/* Vignette */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25 pointer-events-none" />
@@ -116,7 +168,7 @@ export function ScrollVideoHero() {
 
         {/* Progress bar */}
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10 z-10">
-          <div className="h-full bg-white/80" style={{ width: `${progress * 100}%` }} />
+          <div className="h-full bg-white/80 transition-[width] duration-100" style={{ width: `${progress * 100}%` }} />
         </div>
 
         {/* Scroll cue */}
@@ -128,7 +180,7 @@ export function ScrollVideoHero() {
 
         {/* Loading state */}
         {!ready && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[hsl(0_0%_2%)]">
             <div className="text-xl font-semibold tracking-tight text-white/80">OPTIMUS ATLAS</div>
             <div className="h-[2px] w-56 bg-white/10 rounded-full overflow-hidden">
               <div className="h-full bg-white/60 animate-pulse" style={{ width: "60%" }} />
